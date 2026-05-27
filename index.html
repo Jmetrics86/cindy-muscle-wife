@@ -252,36 +252,55 @@
                 <!-- Cindy Dynamic SVG -->
                 <svg id="cindy-svg" width="220" height="250" viewBox="0 0 220 250" class="overflow-visible">
                     <defs>
-                        <!-- Hair Gradient -->
-                        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#fb7185" />
-                            <stop offset="100%" stop-color="#db2777" />
+                        <!-- Hair Gradient: Glossy obsidian black hair -->
+                        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#27272a" /> <!-- Highlight -->
+                            <stop offset="50%" stop-color="#09090b" /> <!-- Jet Black -->
+                            <stop offset="100%" stop-color="#020202" />
                         </linearGradient>
-                        <!-- Skin Gradient -->
+                        <!-- Skin Gradient: Rich warm caramel tan (Trinidad golden complexion) -->
                         <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#ffe4e6" />
-                            <stop offset="100%" stop-color="#fecdd3" />
+                            <stop offset="0%" stop-color="#e29555" /> <!-- Lighter caramel -->
+                            <stop offset="50%" stop-color="#cd8141" /> <!-- Golden honey -->
+                            <stop offset="100%" stop-color="#a15f27" /> <!-- Rich warm shadow -->
                         </linearGradient>
-                        <!-- Outfit Gradient -->
+                        <!-- Outfit Gradient: Scarlet Red from Trinidad flag -->
                         <linearGradient id="outfitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#4f46e5" />
-                            <stop offset="100%" stop-color="#3b82f6" />
+                            <stop offset="0%" stop-color="#da291c" />
+                            <stop offset="100%" stop-color="#a61c13" />
                         </linearGradient>
                     </defs>
 
                     <!-- Back Hair (Ponytail) -->
-                    <path id="back-hair" d="M110,60 C70,40 50,80 50,110 C50,140 70,150 90,140" fill="url(#hairGrad)" stroke="#9d174d" stroke-width="1.5" />
-                    <!-- Ponytail Bow -->
-                    <circle cx="85" cy="80" r="10" fill="#fbbf24" />
-                    <circle cx="95" cy="75" r="7" fill="#fbbf24" />
+                    <path id="back-hair" d="M110,60 C70,40 50,80 50,110 C50,140 70,150 90,140" fill="url(#hairGrad)" stroke="#09090b" stroke-width="1.5" />
+                    <!-- Ponytail Gold Bow -->
+                    <circle cx="85" cy="80" r="8" fill="#fbbf24" />
+                    <circle cx="95" cy="75" r="6" fill="#fbbf24" />
+                    <!-- Gold Hoop Earrings (Trinidad accent) -->
+                    <ellipse cx="80" cy="94" rx="3.5" ry="7" fill="none" stroke="#fbbf24" stroke-width="2.5" />
+                    <ellipse cx="140" cy="94" rx="3.5" ry="7" fill="none" stroke="#fbbf24" stroke-width="2.5" />
+                    <!-- Beautiful Hibiscus Flower in Hair (Trinidad national flower theme) -->
+                    <g id="hibiscus-flower" style="transform: translate(65px, 50px) scale(0.65);">
+                        <!-- Hibiscus Petals -->
+                        <circle cx="15" cy="15" r="8" fill="#da291c" opacity="0.95" />
+                        <circle cx="25" cy="15" r="8" fill="#da291c" opacity="0.95" />
+                        <circle cx="20" cy="8" r="8" fill="#da291c" opacity="0.95" />
+                        <circle cx="15" cy="23" r="8" fill="#da291c" opacity="0.95" />
+                        <circle cx="25" cy="23" r="8" fill="#da291c" opacity="0.95" />
+                        <!-- Golden Yellow center -->
+                        <circle cx="20" cy="16" r="4" fill="#fbbf24" />
+                        <!-- Stamen -->
+                        <path d="M20,16 L20,4" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" />
+                        <circle cx="20" cy="4" r="1.5" fill="#f59e0b" />
+                    </g>
 
                     <!-- Left Arm Bicep (Base & Scaled Muscle) -->
                     <!-- We adjust scale & coordinates dynamically in JS using CSS variables -->
                     <g id="left-arm-group" style="transform-origin: 80px 130px;">
                         <!-- Normal Arm -->
                         <path d="M80,130 Q50,130 50,150" fill="none" stroke="url(#skinGrad)" stroke-width="20" stroke-linecap="round" />
-                        <!-- Bicep Muscle Ellipse (Grows with muscle) -->
-                        <ellipse id="left-bicep" cx="58" cy="132" rx="10" ry="10" fill="url(#skinGrad)" stroke="#f43f5e" stroke-width="1.5" />
+                        <!-- Bicep Muscle - Rounded Rect for SQUARE, ripped, aesthetic blocks (Trinidad/Asian themed dark brown outline) -->
+                        <rect id="left-bicep" x="48" y="122" width="20" height="20" rx="4" fill="url(#skinGrad)" stroke="#9a3412" stroke-width="1.8" />
                         <!-- Left Forearm & Fist -->
                         <path d="M50,150 L40,180" fill="none" stroke="url(#skinGrad)" stroke-width="16" stroke-linecap="round" />
                         <!-- Dumbbell (Drawn if exercising curls) -->
@@ -296,8 +315,8 @@
                     <g id="right-arm-group" style="transform-origin: 140px 130px;">
                         <!-- Normal Arm -->
                         <path d="M140,130 Q170,130 170,150" fill="none" stroke="url(#skinGrad)" stroke-width="20" stroke-linecap="round" />
-                        <!-- Bicep Muscle Ellipse (Grows with muscle) -->
-                        <ellipse id="right-bicep" cx="162" cy="132" rx="10" ry="10" fill="url(#skinGrad)" stroke="#f43f5e" stroke-width="1.5" />
+                        <!-- Bicep Muscle - Rounded Rect for SQUARE, ripped, aesthetic blocks (Trinidad/Asian themed dark brown outline) -->
+                        <rect id="right-bicep" x="152" y="122" width="20" height="20" rx="4" fill="url(#skinGrad)" stroke="#9a3412" stroke-width="1.8" />
                         <!-- Right Forearm & Fist -->
                         <path d="M170,150 L180,180" fill="none" stroke="url(#skinGrad)" stroke-width="16" stroke-linecap="round" />
                         <!-- Dumbbell (Drawn if exercising curls) -->
@@ -312,21 +331,31 @@
                     <g id="legs-group">
                         <!-- Left Leg -->
                         <path id="left-leg" d="M95,200 L95,245" stroke="url(#skinGrad)" stroke-width="18" stroke-linecap="round" />
-                        <path d="M95,245 L85,250" stroke="#f43f5e" stroke-width="12" stroke-linecap="round" /> <!-- shoe -->
+                        <!-- Red Trinidad-flag style running shoe -->
+                        <path d="M95,245 L85,250" stroke="#da291c" stroke-width="12" stroke-linecap="round" />
                         <!-- Right Leg -->
                         <path id="right-leg" d="M125,200 L125,245" stroke="url(#skinGrad)" stroke-width="18" stroke-linecap="round" />
-                        <path d="M125,245 L135,250" stroke="#f43f5e" stroke-width="12" stroke-linecap="round" /> <!-- shoe -->
+                        <!-- Red Trinidad-flag style running shoe -->
+                        <path d="M125,245 L135,250" stroke="#da291c" stroke-width="12" stroke-linecap="round" />
                     </g>
 
                     <!-- Torso (Athletic body) -->
                     <path d="M85,130 L135,130 L125,205 L95,205 Z" fill="url(#skinGrad)" />
-                    <!-- Sports Crop Top -->
-                    <path d="M85,130 L135,130 L130,165 L90,165 Z" fill="url(#outfitGrad)" stroke="#1e40af" stroke-width="1.5" />
-                    <!-- Sports crop straps -->
-                    <path d="M95,130 L95,115 L102,115 L100,130" fill="#1e40af" />
-                    <path d="M125,130 L125,115 L118,115 L120,130" fill="#1e40af" />
-                    <!-- Toned Six-Pack Abs (Grows more defined with muscle) -->
-                    <g id="sixpack" stroke="#fda4af" stroke-width="2" opacity="0.3" stroke-linecap="round">
+                    
+                    <!-- Sports Crop Top (Scarlet Red Base) -->
+                    <path d="M85,130 L135,130 L130,165 L90,165 Z" fill="url(#outfitGrad)" stroke="#09090b" stroke-width="1.5" />
+                    <!-- Trinidad Diagonal Flag Stripe across the Sports Bra -->
+                    <!-- White background borders (wider) -->
+                    <path d="M96,130 L108,130 L126,165 L114,165 Z" fill="#ffffff" opacity="0.95" />
+                    <!-- Black diagonal stripe (center) -->
+                    <path d="M99,130 L105,130 L123,165 L117,165 Z" fill="#000000" />
+                    
+                    <!-- Sports crop straps (Black for contrast) -->
+                    <path d="M95,130 L95,115 L101,115 L100,130" fill="#18181b" />
+                    <path d="M125,130 L125,115 L119,115 L120,130" fill="#18181b" />
+                    
+                    <!-- Toned Six-Pack Abs (Grows more defined with muscle - darker shadow for caramel skin) -->
+                    <g id="sixpack" stroke="#7c2d12" stroke-width="2" opacity="0.3" stroke-linecap="round">
                         <line x1="110" y1="170" x2="110" y2="200" />
                         <!-- Pack 1 -->
                         <line x1="102" y1="175" x2="118" y2="175" />
@@ -339,39 +368,41 @@
                     <!-- Neck -->
                     <rect x="102" y="100" width="16" height="20" fill="url(#skinGrad)" />
 
-                    <!-- Head & Face -->
-                    <circle cx="110" cy="90" r="28" fill="url(#skinGrad)" stroke="#fda4af" stroke-width="1" />
+                    <!-- Head & Face (Caramel Skin with Warm Red-Brown shadow border) -->
+                    <circle cx="110" cy="90" r="28" fill="url(#skinGrad)" stroke="#9a3412" stroke-width="1.5" />
 
-                    <!-- Hair Front / Bangs -->
-                    <path d="M82,90 C82,60 138,60 138,90 C138,65 125,65 110,75 C95,65 82,65 82,90" fill="url(#hairGrad)" stroke="#9d174d" stroke-width="1" />
+                    <!-- Hair Front / Bangs (Glossy obsidian black) -->
+                    <path d="M82,90 C82,60 138,60 138,90 C138,65 125,65 110,75 C95,65 82,65 82,90" fill="url(#hairGrad)" stroke="#09090b" stroke-width="1.2" />
 
                     <!-- Expression Group (Mouth, Eyes, Eyebrows) -->
                     <g id="expression-group">
-                        <!-- Eyebrows (Dynamic: Happy/Angry/Neutral) -->
-                        <path id="eyebrow-left" d="M93,82 Q98,79 101,82" stroke="#9d174d" stroke-width="2" fill="none" stroke-linecap="round" />
-                        <path id="eyebrow-right" d="M119,82 Q122,79 127,82" stroke="#9d174d" stroke-width="2" fill="none" stroke-linecap="round" />
+                        <!-- Eyebrows (Dynamic: Happy/Angry/Neutral - Sleek Black) -->
+                        <path id="eyebrow-left" d="M93,82 Q98,79 101,82" stroke="#09090b" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                        <path id="eyebrow-right" d="M119,82 Q122,79 127,82" stroke="#09090b" stroke-width="2.2" fill="none" stroke-linecap="round" />
                         
-                        <!-- Eyes (Dynamic: Happy/Angry/Neutral/Blinking) -->
+                        <!-- Eyes (Dynamic: Almond/Asian shapes with elegant winged eyeliner) -->
                         <!-- Normal Left Eye -->
                         <g id="eye-left">
-                            <circle cx="98" cy="90" r="4" fill="#0f172a" />
-                            <circle cx="97" cy="89" r="1.5" fill="#ffffff" />
+                            <path d="M91,89 Q98,84 104,89 L106,87" stroke="#09090b" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                            <ellipse cx="98" cy="90" rx="3.5" ry="3" fill="#1c1917" />
+                            <circle cx="97" cy="89" r="1" fill="#ffffff" />
                         </g>
                         <!-- Normal Right Eye -->
                         <g id="eye-right">
-                            <circle cx="122" cy="90" r="4" fill="#0f172a" />
-                            <circle cx="121" cy="89" r="1.5" fill="#ffffff" />
+                            <path d="M116,89 Q122,84 128,89 L130,87" stroke="#09090b" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                            <ellipse cx="122" cy="90" rx="3.5" ry="3" fill="#1c1917" />
+                            <circle cx="121" cy="89" r="1" fill="#ffffff" />
                         </g>
                         <!-- Closed/Happy/Blinking Eyes -->
-                        <path id="eye-happy-left" class="hidden" d="M94,92 Q98,87 102,92" stroke="#0f172a" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                        <path id="eye-happy-right" class="hidden" d="M118,92 Q122,87 126,92" stroke="#0f172a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <path id="eye-happy-left" class="hidden" d="M92,91 Q98,86 104,91" stroke="#09090b" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <path id="eye-happy-right" class="hidden" d="M116,91 Q122,86 128,91" stroke="#09090b" stroke-width="2.5" fill="none" stroke-linecap="round" />
 
                         <!-- Blush cheeks -->
-                        <ellipse cx="92" cy="95" rx="4" ry="2" fill="#fb7185" opacity="0.6" />
-                        <ellipse cx="128" cy="95" rx="4" ry="2" fill="#fb7185" opacity="0.6" />
+                        <ellipse cx="92" cy="95" rx="4" ry="2" fill="#e11d48" opacity="0.45" />
+                        <ellipse cx="128" cy="95" rx="4" ry="2" fill="#e11d48" opacity="0.45" />
 
                         <!-- Mouth (Dynamic: Happy Smile, Angry Frown, Concentrating Grit) -->
-                        <path id="mouth" d="M105,101 Q110,106 115,101" stroke="#9d174d" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <path id="mouth" d="M105,101 Q110,105 115,101" stroke="#9a3412" stroke-width="2.5" fill="none" stroke-linecap="round" />
                     </g>
                 </svg>
 
@@ -381,22 +412,30 @@
             </div>
 
             <!-- CHILDREN CRIB AREA (Appears beneath or beside Cindy once born) -->
-            <div id="cribs-container" class="absolute bottom-[10px] left-4 flex gap-2 z-30 transition-all duration-500 scale-0 origin-bottom-left">
+            <div id="cribs-container" class="absolute bottom-[10px] left-4 flex gap-2.5 z-30 transition-all duration-500 scale-0 origin-bottom-left">
+                
+                <!-- SIBLING FIGHT SMOKE EFFECT (Overlay when fighting) -->
+                <div id="fight-smoke" class="absolute inset-0 bg-slate-900/60 rounded-2xl flex items-center justify-center text-4xl pointer-events-none z-40 scale-0 transition-transform duration-300">
+                    <span class="animate-bounce">🥊💨💥</span>
+                </div>
+
                 <!-- Baby Girl Crib -->
-                <div id="crib-girl" class="bg-gradient-to-b from-rose-100 to-rose-200 border-2 border-rose-400 p-2 rounded-2xl flex flex-col items-center shadow-lg relative hidden hover:scale-105 transform transition duration-200">
-                    <span class="absolute -top-2 -right-1 text-xs">🎀</span>
-                    <div class="text-3xl animate-bounce" style="animation-duration: 2.5s;">👶</div>
-                    <div class="text-[8px] font-extrabold text-rose-700 uppercase tracking-tight">Baby Girl</div>
+                <div id="crib-girl" class="bg-gradient-to-b from-rose-100 to-rose-200 border-2 border-rose-400 p-2.5 rounded-2xl flex flex-col items-center shadow-lg relative hidden hover:scale-105 transform transition duration-200">
+                    <span class="absolute -top-2 -right-1 text-xs" id="girl-badge">🎀</span>
+                    <div class="text-3.5xl animate-bounce" style="animation-duration: 2.4s;" id="girl-emoji">👶</div>
+                    <div class="text-[8px] font-black text-rose-800 uppercase tracking-tight" id="girl-title">Baby Girl</div>
+                    <div class="text-[7px] text-rose-600 font-extrabold" id="girl-stage-label">Infant</div>
                     <!-- Mini bicep flex indicator -->
-                    <div class="text-[7px] text-rose-500 font-bold bg-white px-1 rounded">💪 2lbs</div>
+                    <div class="text-[7px] text-rose-500 font-bold bg-white px-1 rounded" id="girl-weight-label">💪 2lbs</div>
                 </div>
 
                 <!-- Baby Boy Crib -->
-                <div id="crib-boy" class="bg-gradient-to-b from-sky-100 to-sky-200 border-2 border-sky-400 p-2 rounded-2xl flex flex-col items-center shadow-lg relative hidden hover:scale-105 transform transition duration-200">
-                    <span class="absolute -top-2 -right-1 text-xs">🧢</span>
-                    <div class="text-3xl animate-bounce" style="animation-duration: 2s;">👶</div>
-                    <div class="text-[8px] font-extrabold text-sky-700 uppercase tracking-tight">Baby Boy</div>
-                    <div class="text-[7px] text-sky-500 font-bold bg-white px-1 rounded">💪 4lbs</div>
+                <div id="crib-boy" class="bg-gradient-to-b from-sky-100 to-sky-200 border-2 border-sky-400 p-2.5 rounded-2xl flex flex-col items-center shadow-lg relative hidden hover:scale-105 transform transition duration-200">
+                    <span class="absolute -top-2 -right-1 text-xs" id="boy-badge">🧢</span>
+                    <div class="text-3.5xl animate-bounce" style="animation-duration: 2.1s;" id="boy-emoji">👶</div>
+                    <div class="text-[8px] font-black text-sky-800 uppercase tracking-tight" id="boy-title">Baby Boy</div>
+                    <div class="text-[7px] text-sky-600 font-extrabold" id="boy-stage-label">Infant</div>
+                    <div class="text-[7px] text-sky-500 font-bold bg-white px-1 rounded" id="boy-weight-label">💪 4lbs</div>
                 </div>
             </div>
         </div>
@@ -417,23 +456,56 @@
                 <!-- Sample initial posts -->
                 <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/50 flex flex-col gap-1 transition duration-300">
                     <div class="flex justify-between items-center text-[10px] text-slate-400">
-                        <span class="font-black text-slate-200">Cindy Gainz-Wife</span>
+                        <span class="font-black text-slate-200">Cindy Gainz-Wife 🇹🇹</span>
                         <span>10m ago</span>
                     </div>
                     <p class="text-slate-300 leading-relaxed">
-                        Just did 200 squats and washed all the protein shake shakers. My quads are like solid granite. Hubby is a lucky man! 🦵💖 #GainzWife #WorkoutRoutine
+                        Just did 200 squats and washed all de shakers. Me quads are solid granite, real steel! Hubby is a lucky man! 🦵💖 #TriniWife #Gainz #SocaBeats
                     </p>
                 </div>
 
                 <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/50 flex flex-col gap-1 transition duration-300">
                     <div class="flex justify-between items-center text-[10px] text-slate-400">
-                        <span class="font-black text-slate-200">Cindy Gainz-Wife</span>
+                        <span class="font-black text-slate-200">Cindy Gainz-Wife 🇹🇹</span>
                         <span>1h ago</span>
                     </div>
                     <p class="text-slate-300 leading-relaxed">
-                        If this house doesn't stay absolutely spotless I swear I am going to throw a 45lb plate through the wall. Love you guys! 😘🧹 #Housework #GymWife
+                        If dis house ent stay spotless I going to throw a 45lb plate through de wall. Don't make me vex! 😘🧹 #TriniHome #GymWife
                     </p>
                 </div>
+            </div>
+        </div>
+
+        <!-- FAMILY & KIDS ACTION STATION (Unhidden dynamically once a child is born) -->
+        <div id="family-station" class="bg-slate-900 border-t border-slate-800 p-3 hidden flex-col gap-2.5 z-30 transition-all duration-300">
+            <div class="flex justify-between items-center text-xs">
+                <span class="font-extrabold text-amber-400 tracking-wider flex items-center gap-1.5">
+                    <span>👪 FAMILY & KIDS STATION</span>
+                </span>
+                <span id="kids-status-label" class="text-[9px] px-1.5 py-0.5 bg-slate-950 rounded text-slate-400 font-bold uppercase tracking-wide">Infants Era</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2">
+                <!-- Feed Kids / Train Kids Dynamic Buttons -->
+                <button onclick="feedKids()" class="py-2.5 bg-gradient-to-b from-rose-600 to-rose-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-2 hover:from-rose-500 hover:to-rose-700 active:scale-95 transform transition border border-rose-400/20">
+                    <span id="feed-icon">🍼</span>
+                    <span id="feed-text">FEED MILK</span>
+                </button>
+                
+                <button onclick="trainKids()" class="py-2.5 bg-gradient-to-b from-amber-600 to-amber-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-2 hover:from-amber-500 hover:to-amber-700 active:scale-95 transform transition border border-amber-400/20">
+                    <span id="train-icon">🤸‍♀️</span>
+                    <span id="train-text">TRAIN KIDS</span>
+                </button>
+            </div>
+            
+            <!-- SIBLING FIGHT CONTROLS (Only visible when Sibling fight is active) -->
+            <div id="fight-controls" class="hidden grid grid-cols-2 gap-2 bg-slate-950 border border-red-500/30 p-2 rounded-xl">
+                <button onclick="resolveFight('mediate')" class="py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-[9px] rounded-lg tracking-wider active:scale-95 transition">
+                    🕊️ MEDIATE FIGHT
+                </button>
+                <button onclick="resolveFight('wrestle')" class="py-1.5 bg-amber-600 hover:bg-amber-500 text-white font-black text-[9px] rounded-lg tracking-wider active:scale-95 transition">
+                    🥊 LET THEM WRESTLE
+                </button>
             </div>
         </div>
 
@@ -642,7 +714,14 @@
             lastAngryPostTime: 0,
             hasDaughter: false,
             hasSon: false,
-            isBrokenBtnActive: false
+            isBrokenBtnActive: false,
+            // Kids growth states
+            girlGrowth: 0,
+            boyGrowth: 0,
+            girlStrength: 2,
+            boyStrength: 4,
+            isFighting: false,
+            lastFightTime: 0
         };
 
         // DOM Elements
@@ -672,6 +751,24 @@
         const romanceBtn = document.getElementById('romance-btn');
         const romanceSub = document.getElementById('romance-sub');
         const gameContainer = document.getElementById('game-container');
+        
+        // Kids Station DOM elements
+        const familyStation = document.getElementById('family-station');
+        const kidsStatusLabel = document.getElementById('kids-status-label');
+        const fightControls = document.getElementById('fight-controls');
+        const fightSmoke = document.getElementById('fight-smoke');
+
+        const girlEmoji = document.getElementById('girl-emoji');
+        const girlTitle = document.getElementById('girl-title');
+        const girlStageLabel = document.getElementById('girl-stage-label');
+        const girlWeightLabel = document.getElementById('girl-weight-label');
+        const girlBadge = document.getElementById('girl-badge');
+
+        const boyEmoji = document.getElementById('boy-emoji');
+        const boyTitle = document.getElementById('boy-title');
+        const boyStageLabel = document.getElementById('boy-stage-label');
+        const boyWeightLabel = document.getElementById('boy-weight-label');
+        const boyBadge = document.getElementById('boy-badge');
 
         // SVG elements to mutate
         const leftBicep = document.getElementById('left-bicep');
@@ -733,9 +830,24 @@
 
                 // Random coos from babies if present
                 if (state.hasDaughter || state.hasSon) {
-                    if (Math.random() < 0.12) {
+                    if (Math.random() < 0.12 && !state.isFighting) {
                         playSound('coo');
                     }
+                }
+
+                // Sibling fight triggers (6% chance every second if both are at least Toddlers and haven't fought recently)
+                if (state.hasDaughter && state.hasSon && state.girlGrowth > 30 && state.boyGrowth > 30) {
+                    if (!state.isFighting && (Date.now() - state.lastFightTime > 40000)) {
+                        if (Math.random() < 0.06) {
+                            startSiblingFight();
+                        }
+                    }
+                }
+
+                // Sibling fight penalty
+                if (state.isFighting) {
+                    updateCleanliness(-3.5); // Sibling fighting wrecks the house!
+                    updateHappiness(-2.0);
                 }
             }, 1000);
         }
@@ -797,18 +909,24 @@
             }
             muscleTierEl.textContent = tier;
 
-            // Render muscle scaling directly in the SVG elements!
-            // Radius of bicep circles grows
-            const size = Math.min(65, 8 + (state.muscle * 0.45));
-            leftBicep.setAttribute('rx', size);
-            leftBicep.setAttribute('ry', size * 0.85);
-            rightBicep.setAttribute('rx', size);
-            rightBicep.setAttribute('ry', size * 0.85);
+            // Render blocky/square muscle scaling directly in the SVG rect nodes!
+            // Capped to avoid ballooning or looking overly huge/round
+            const width = Math.min(32, 14 + (state.muscle * 0.14));
+            const height = Math.min(34, 14 + (state.muscle * 0.15));
 
-            // Bicep center point offsets a bit outward for larger muscles
-            const bOffset = Math.min(25, (state.muscle * 0.15));
-            leftBicep.setAttribute('cx', 58 - bOffset * 0.5);
-            rightBicep.setAttribute('cx', 162 + bOffset * 0.5);
+            // Adjust left bicep square dimensions
+            leftBicep.setAttribute('width', width);
+            leftBicep.setAttribute('height', height);
+            leftBicep.setAttribute('x', 58 - width / 2);
+            leftBicep.setAttribute('y', 134 - height / 2);
+            leftBicep.setAttribute('rx', 4);
+
+            // Adjust right bicep square dimensions
+            rightBicep.setAttribute('width', width);
+            rightBicep.setAttribute('height', height);
+            rightBicep.setAttribute('x', 162 - width / 2);
+            rightBicep.setAttribute('y', 134 - height / 2);
+            rightBicep.setAttribute('rx', 4);
 
             // Define abs visibility based on muscles
             const absOpacity = Math.min(0.9, 0.15 + (state.muscle * 0.007));
@@ -1041,44 +1159,44 @@
             }, 3000);
         }
 
-        // Predefined Grolyx templates based on action
+        // Predefined Grolyx templates based on action (Trini & Asian themed!)
         function postToGrolyx(actionType) {
             let posts = [];
 
             if (actionType === 'workout_squat') {
                 posts = [
-                    "Smashed 315lbs squats for 10 reps today! 🏋️‍♀️ Quad sweep is looking lethal. My husband is cooking high-protein chicken breast for me right now! #GainzWife #GlutesOfSteel #NoWeakHubby",
-                    "Veins popping on leg day! Squatted so hard I cracked the gym floor a bit. Powerlifting life! 💪🦵 #WifeWhoLifts #StrongGenes #PowerCouple"
+                    "Smashed 315lbs squats today! 🏋️‍♀️ Leg day was real vibes! Now hubby cooking up some high-protein curry chicken and dhal for me. #TriniGains #WifeWhoLifts #GlutesOfSteel",
+                    "Veins poppin' on leg day! Squatted so hard I crack de gym floor a bit. Allyuh see me squat depth? 🇹🇹💪🦵 #StrongWife #TriniPower #Gains"
                 ];
             } else if (actionType === 'workout_curl') {
                 posts = [
-                    "Bicep peak is officially taller than my husband's head. 💪 Look at this pump! Eat your spinach! #PeakPower #HugeArms #SunsOutGunsOut #WifePride",
-                    "My husband gave me a protein shake after those heavy curls. That's true romance! ❤️🍼 Biceps are rock hard today. #BicepPeak #Gainz"
+                    "Bicep peak taller than hubby's head now. 💪 Look at de pump! Eat your doubles and lift your weights! #PeakPower #HugeArms #TriniWife #AsianGains",
+                    "Hubby hand me a protein shake after dem heavy curls. He know how to sweet-talk a muscle wife! ❤️🍼 Biceps lookin' sweet-too-bad today. #BicepPeak #Gainz"
                 ];
             } else if (actionType === 'workout_run') {
                 posts = [
-                    "Treadmill sprinted 5 miles at 12mph. Feeling like a goddess. Hubby, you better start running too if you want to keep up with me! 🏃‍♀️💨 #CardioBeast #SweatIsJustFatCrying",
-                    "Endorphins are flowing! Cardio session completed. House is smelling like sweat and victory! #HealthyLifestyle #GigaWife"
+                    "Treadmill sprinted 5 miles at max speed. Sweat running like rain, but we liming after! 🏃‍♀️💨 #CardioBeast #TriniGains #NoLazyDay",
+                    "Endorphins flowin'! Cardio done. Time to put on some Soca and get a nice protein shake! 🎵💪 #Vibes #HealthyLife #GigaWife"
                 ];
             } else if (actionType === 'clean_house') {
                 posts = [
-                    "HOUSE IS OFFICIALLY STERILE. Clean floors, fresh air, protein shakes blending. This is a palace! ✨🧹 #CleanHome #WifeDuties #Aesthetic",
-                    "Just sweated off 2lbs vacuuming. Everything is in perfect order. Happiness level is off the charts! 💖🏡 #OrganizedLife #HappyWife"
+                    "DE HOUSE SPOTLESS NOW! Clean floors, fresh scent, no dust in sight. Now we can relax and lime! ✨🧹 #PerfectWife #CleanHouse #Aesthetic",
+                    "Just sweated off 2lbs vacuuming de parlor. Everything clean-too-bad. Happiness level 100%! 💖🏡 #TriniHome #OrganizedWife"
                 ];
             } else if (actionType === 'compliment') {
                 posts = [
-                    "Hubby just called me his 'gorgeous bulk goddess' and massaged my traps. I am crying! 😭❤️ I love him so much. #BestHusband #Blessed #PowerCouple",
-                    "Complimented by my handsome man today! He said my biceps are looking absolutely astronomical. Romance is ALIVE! 💖✨ #WifeAppreciation #BicepWife"
+                    "Hubby just tell me I am his 'gorgeous Soca goddess' and rub down my traps. I blush too bad! 😭❤️ I love him till death! #BestHusband #Blessed #PowerCouple",
+                    "My man whisper in me ear dat me biceps looking absolutely astronomical. Romance real sweet today! 💖✨ #WifeAppreciation #BicepWife"
                 ];
             } else if (actionType === 'baby_girl') {
                 posts = [
-                    "WELCOME BABY GIRL! 👶🎀 Born with beautiful traps and a strong grip! She is already cuddling her tiny pink 2lb dumbbell crib toy. So in love! #BabyGirl #StrongGenes #FamilyEra",
-                    "IT'S A GIRL! 👶🍼 Cindy junior has entered the world. She has my hair and her dad's cute nose. Our legacy of strength begins! ❤️ #BabyGains #Blessed"
+                    "WELCOME BABY GIRL! 👶🎀 Born strong and sweet-too-bad! She already holding on to her tiny pink dumbbell in de crib. So in love! #BabyGirl #TriniBaby #StrongGenes #FamilyEra",
+                    "IT'S A GIRL! 👶🍼 Little Cindy junior is here! She has my dark eyes and she already lookin' like a champion. Our family is real vibes! ❤️ #BabyGains #Blessed"
                 ];
             } else if (actionType === 'baby_boy') {
                 posts = [
-                    "IT'S A BABY BOY! 👶🧢 Born lifting his own rattle! Weighs 9lbs of pure muscle. He already tried to flex in his crib. Future Arnold! #BabyBoy #GymBaby #FullFamily",
-                    "WE HAVE A BOY! 🍼💪 Baby brother is here! He and his sister are going to dominate the playgrounds of this city. Hubby and I are complete! #MyBoy #MuscleGenes #PowerlifterBabies"
+                    "IT'S A BABY BOY! 👶🧢 9lbs of pure strength. He already tryin' to flex for his mammee! Future Mr. Universe! #BabyBoy #GymBaby #FullFamily #PowerCouple",
+                    "WE HAVE A BOY! 🍼💪 Baby brother has arrived! He and his sister are going to rule de gym. Hubby and I are complete! #MyBoy #MuscleGenes #TriniPower"
                 ];
             }
 
@@ -1093,12 +1211,12 @@
             if (now - state.lastAngryPostTime < 15000) return;
             state.lastAngryPostTime = now;
 
-            // Angry / Cursing templates with simulated censoring
+            // Angry / Cursing templates with simulated censoring in Trini slang
             const angryCursingPosts = [
-                "WHAT THE F*** IS ALL THIS DUST ON THE TABLE?! DO I LIVE WITH A HOARDER?! CLEAN IT UP YOU LAZY S***!!! 🤬☠️ #RAGE #CLEANUP #SICKOFIT #DIRTY",
-                "CURSING ON GROLYX BECAUSE MY HUSBAND IS LEAVING HIS SHAKERS UNWASHED ON THE COUNTER! IF IT IS NOT SPARKLING IN 5 MINUTES, I SWEAR TO G** I AM FLIPPING THE COUCH!!! 🤬🛠️ #REDRUM #DIRTYHOUSE #HELPME",
-                "HOLY S***, THE HOUSE IS A G***** F***ING DUMP! I DID NOT SQUAT 350 LBS TO LIVE IN A SWINE STY! GET THE BROOM OUT NOW OR ELSE!!! 🤬🤬☠️ #GETTOWORK #SICKOFTHIS",
-                "OMG! THE FLUFF AND DIRT IS F***ING SUFFOCATING ME! WHY DO I HAVE TO CLEAN EVERYTHING?! DO SOMETHING USEFUL AND SWEEP!!! 😾🌪️ #FUMING #DIRTYSLOB"
+                "WHAT DE GOOTESS IS ALL DIS DUST?! Allyuh think I living in a mud hut?! CLEAN DE F***ING HOUSE BEFORE I GET VEX!!! 🤬☠️ #RAGE #DIRTY #CLEANITNOW",
+                "Cursing on Grolyx because hubby leaving his dirty shakers on de counter! If dis place ent sparkling in 5 minutes, I throwing a 45lb plate at he head!!! 🤬🛠️ #VexTooBad #CleanUp #LazySlob",
+                "OMG, de house is a total f***ing dump! I did not squat 350 LBS to live in dirt! Get de broom and sweep, don't play dotish with me!!! 🤬🤬☠️ #GetToWork #NoSlackness",
+                "This fluff and dust is f***ing suffocating me! Why do I have to do everything?! Clean de place now, don't let me get wajang on you!!! 😾🌪️ #Fuming #TriniRage"
             ];
 
             const index = Math.floor(Math.random() * angryCursingPosts.length);
@@ -1146,6 +1264,292 @@
             }
         }
 
+        // KIDS CARE & STAGE GROWTH SIMULATION HANDLERS
+
+        // Starts Sibling Fight
+        function startSiblingFight() {
+            if (state.isFighting) return;
+            state.isFighting = true;
+
+            // Trigger visual alarms
+            playSound('clank'); // metallic bang!
+            fightSmoke.classList.remove('scale-0');
+            fightSmoke.classList.add('scale-100');
+            fightControls.classList.remove('hidden');
+
+            // Force Cindy face to furious
+            updateExpression();
+
+            // Post to Grolyx
+            const siblingFightPosts = [
+                "OMG! De kids fighting in de living room again! Sister hit Junior with a double-leg takedown because he touched her dumbbells! 😭🥊 #TriniKids #FightVibes #StrongFamily",
+                "Junior just pelt a 5lb plate at his sister and she catch it and pelt it back! Had to run and mediate before they tear down de whole parlor! 🤬🌪️ #WajangKids #SendHelp #MuscleFamily"
+            ];
+            const fightPost = siblingFightPosts[Math.floor(Math.random() * siblingFightPosts.length)];
+            addGrolyxPost(fightPost);
+        }
+
+        // Resolves Sibling Fight (Mediate or Let them Wrestle!)
+        function resolveFight(type) {
+            if (!state.isFighting) return;
+            state.isFighting = false;
+            state.lastFightTime = Date.now();
+
+            // Hide smoke and controls
+            fightSmoke.classList.remove('scale-100');
+            fightSmoke.classList.add('scale-0');
+            fightControls.classList.add('hidden');
+
+            if (type === 'mediate') {
+                playSound('romance');
+                updateHappiness(15);
+                updateCleanliness(10);
+                const CindyPeacePosts = [
+                    "Just break up de big wrestle match over who getting de gold dumbbells! Gave them some dhalpuri and sweet talk, now they quiet. Family is love! 🕊️❤️ #SiblingPeace #MomDuty",
+                    "No more fight! Mediated with absolute authority. Now they hugging up in de crib. Balance restored! 🕊️✨ #TriniHome #Peace"
+                ];
+                addGrolyxPost(CindyPeacePosts[Math.floor(Math.random() * CindyPeacePosts.length)]);
+            } else if (type === 'wrestle') {
+                playSound('clank');
+                // Both kids grow stronger from training wrestling grapple form!
+                if (state.hasDaughter) {
+                    state.girlStrength += 12;
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 12);
+                }
+                if (state.hasSon) {
+                    state.boyStrength += 12;
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 12);
+                }
+                
+                // Big penalty to house
+                updateCleanliness(-25);
+                updateHappiness(-15);
+                
+                addGrolyxPost("I let them wrestle it out to see who had better grapple form! Sissy got Junior in a headlock but his sweep form was incredible! Parlor is a total f***ing mess now, but de muscle gains are real! 💥🥊🏡 #WrestleItOut #TriniFire #FitnessKids");
+            }
+
+            updateKidsUI();
+            updateExpression();
+        }
+
+        // Feed Kids Handler (Customized based on average growth stage)
+        function feedKids() {
+            if (!state.hasDaughter && !state.hasSon) return;
+
+            // Determine average growth
+            let count = 0;
+            let sum = 0;
+            if (state.hasDaughter) { count++; sum += state.girlGrowth; }
+            if (state.hasSon) { count++; sum += state.boyGrowth; }
+            const avg = sum / count;
+
+            playSound('coo');
+
+            if (avg <= 30) {
+                // Infant Era: feed formula/milk
+                if (state.hasDaughter) {
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 15);
+                    state.girlStrength += 2;
+                }
+                if (state.hasSon) {
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 15);
+                    state.boyStrength += 2;
+                }
+                updateHappiness(8);
+                updateCleanliness(-5); // spilled milk / diapers!
+                addGrolyxPost("Just feed de babies some fresh formula! Junior was sucking dat bottle down like he doing bicep curls, and baby sissy holding de bottle herself! 👶🍼 #Infants #StrongFamily #MomLife");
+            } else if (avg <= 70) {
+                // Toddler Era: feed doubles / channa
+                if (state.hasDaughter) {
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 12);
+                    state.girlStrength += 4;
+                }
+                if (state.hasSon) {
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 12);
+                    state.boyStrength += 4;
+                }
+                updateHappiness(10);
+                updateCleanliness(-8); // dirty hands!
+                addGrolyxPost("Feeding de toddlers some piping hot Trini doubles with double channa and slight pepper! They eating so fast, sauce all over de parlor floor! 🥯🔥 #Toddlers #TriniVibes #HeavyEating");
+            } else {
+                // Adolescent Era: feed whey protein shakes
+                if (state.hasDaughter) {
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 10);
+                    state.girlStrength += 6;
+                }
+                if (state.hasSon) {
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 10);
+                    state.boyStrength += 6;
+                }
+                updateHappiness(12);
+                updateCleanliness(-4);
+                addGrolyxPost("Blended up a triple-scoop cookies & cream whey isolate protein shake for de teens! Sister downed hers and immediately did 5 wide-grip pullups. Beast mode! 🥤💪 #TeenGains #WheyProtein #NextOlympia");
+            }
+
+            updateKidsUI();
+        }
+
+        // Train Kids Handler (Customized based on average growth stage)
+        function trainKids() {
+            if (!state.hasDaughter && !state.hasSon) return;
+
+            // Determine average growth
+            let count = 0;
+            let sum = 0;
+            if (state.hasDaughter) { count++; sum += state.girlGrowth; }
+            if (state.hasSon) { count++; sum += state.boyGrowth; }
+            const avg = sum / count;
+
+            playSound('flex');
+
+            if (avg <= 30) {
+                // Infant Era: Tummy Time
+                if (state.hasDaughter) {
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 10);
+                    state.girlStrength += 3;
+                }
+                if (state.hasSon) {
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 10);
+                    state.boyStrength += 3;
+                }
+                updateHappiness(5);
+                updateCleanliness(-3);
+                addGrolyxPost("Tummy time curls with de babies! Sissy holding her head up with pristine neck flex, and Junior trying to roll over like a log. Professional form! 👶🤸‍♀️ #TummyTime #FitnessBabies");
+            } else if (avg <= 70) {
+                // Toddler Era: Baby pushups
+                if (state.hasDaughter) {
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 12);
+                    state.girlStrength += 6;
+                }
+                if (state.hasSon) {
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 12);
+                    state.boyStrength += 6;
+                }
+                updateHappiness(8);
+                updateCleanliness(-6); // chalk sweat!
+                addGrolyxPost("Leading de toddlers in a high-intensity baby pushups class! Junior did 8 reps but sissy did 12 with locked elbows. Ripped toddlers! 🤸‍♀️💪 #ToddlerWorkouts #StrongWifeStrongKids");
+            } else {
+                // Adolescent Era: Squat lifting with Mom
+                if (state.hasDaughter) {
+                    state.girlGrowth = Math.min(100, state.girlGrowth + 8);
+                    state.girlStrength += 10;
+                }
+                if (state.hasSon) {
+                    state.boyGrowth = Math.min(100, state.boyGrowth + 8);
+                    state.boyStrength += 10;
+                }
+                // Boost Mom's muscle level slightly as they lift together!
+                updateMuscle(3);
+                updateHappiness(15);
+                updateCleanliness(-5);
+                addGrolyxPost("Guiding de teens through empty barbell squat sets! Their depth is solid, hips stable, backs straight-too-bad! We lifting as one family today! 🏋️‍♂️✨ #FamilySquats #TeenPowerlifters #LegDayVibes");
+            }
+
+            updateKidsUI();
+        }
+
+        // Dynamically Updates Kids UI (emojis, stages, weights, titles, action buttons)
+        function updateKidsUI() {
+            if (!state.hasDaughter && !state.hasSon) return;
+
+            // Unhide family control panel
+            familyStation.classList.remove('hidden');
+
+            let count = 0;
+            let sum = 0;
+
+            if (state.hasDaughter) {
+                count++;
+                sum += state.girlGrowth;
+
+                // Determine Girl Stage
+                if (state.girlGrowth <= 30) {
+                    girlEmoji.textContent = "👶";
+                    girlStageLabel.textContent = "Infant (Growth: " + state.girlGrowth + "%)";
+                    girlTitle.textContent = "Baby Girl";
+                    girlBadge.textContent = "🎀";
+                    // Calculate weight
+                    const weight = Math.round(state.girlStrength * 1.5 + 2);
+                    girlWeightLabel.textContent = "💪 " + weight + " lbs";
+                } else if (state.girlGrowth <= 70) {
+                    girlEmoji.textContent = "👧";
+                    girlStageLabel.textContent = "Toddler (Growth: " + state.girlGrowth + "%)";
+                    girlTitle.textContent = "Sissy Cindy";
+                    girlBadge.textContent = "🤸‍♀️";
+                    const weight = Math.round(state.girlStrength * 1.8 + 12);
+                    girlWeightLabel.textContent = "💪 " + weight + " lbs";
+                } else {
+                    girlEmoji.textContent = "👱‍♀️";
+                    girlStageLabel.textContent = "Teenager (Growth: " + state.girlGrowth + "%)";
+                    girlTitle.textContent = "Cindy Junior";
+                    girlBadge.textContent = "🏋️‍♀️";
+                    const weight = Math.round(state.girlStrength * 2.2 + 82);
+                    girlWeightLabel.textContent = "💪 " + weight + " lbs";
+                }
+            }
+
+            if (state.hasSon) {
+                count++;
+                sum += state.boyGrowth;
+
+                // Determine Boy Stage
+                if (state.boyGrowth <= 30) {
+                    boyEmoji.textContent = "👶";
+                    boyStageLabel.textContent = "Infant (Growth: " + state.boyGrowth + "%)";
+                    boyTitle.textContent = "Baby Boy";
+                    boyBadge.textContent = "🧢";
+                    const weight = Math.round(state.boyStrength * 1.5 + 3);
+                    boyWeightLabel.textContent = "💪 " + weight + " lbs";
+                } else if (state.boyGrowth <= 70) {
+                    boyEmoji.textContent = "👦";
+                    boyStageLabel.textContent = "Toddler (Growth: " + state.boyGrowth + "%)";
+                    boyTitle.textContent = "Little Junior";
+                    boyBadge.textContent = "🥊";
+                    const weight = Math.round(state.boyStrength * 1.8 + 14);
+                    boyWeightLabel.textContent = "💪 " + weight + " lbs";
+                } else {
+                    boyEmoji.textContent = "🧑‍🦱";
+                    boyStageLabel.textContent = "Teenager (Growth: " + state.boyGrowth + "%)";
+                    boyTitle.textContent = "Junior II";
+                    boyBadge.textContent = "🦍";
+                    const weight = Math.round(state.boyStrength * 2.2 + 85);
+                    boyWeightLabel.textContent = "💪 " + weight + " lbs";
+                }
+            }
+
+            const avgGrowth = sum / count;
+
+            // Dynamically change labels & icons for Feed/Train buttons based on era!
+            const kidsStatusLabelElement = document.getElementById('kids-status-label');
+            const feedIcon = document.getElementById('feed-icon');
+            const feedText = document.getElementById('feed-text');
+            const trainIcon = document.getElementById('train-icon');
+            const trainText = document.getElementById('train-text');
+
+            if (avgGrowth <= 30) {
+                kidsStatusLabelElement.textContent = "Infants Era";
+                kidsStatusLabelElement.className = "text-[9px] px-1.5 py-0.5 bg-rose-950 rounded text-rose-300 font-bold uppercase tracking-wide";
+                feedIcon.textContent = "🍼";
+                feedText.textContent = "FEED MILK";
+                trainIcon.textContent = "🤸‍♀️";
+                trainText.textContent = "TUMMY TIME";
+            } else if (avgGrowth <= 70) {
+                kidsStatusLabelElement.textContent = "Toddlers Era";
+                kidsStatusLabelElement.className = "text-[9px] px-1.5 py-0.5 bg-amber-950 rounded text-amber-300 font-bold uppercase tracking-wide";
+                feedIcon.textContent = "🥯";
+                feedText.textContent = "FEED DOUBLES";
+                trainIcon.textContent = "🤸‍♂️";
+                trainText.textContent = "BABY PUSHUPS";
+            } else {
+                kidsStatusLabelElement.textContent = "Teenagers Era";
+                kidsStatusLabelElement.className = "text-[9px] px-1.5 py-0.5 bg-purple-950 rounded text-purple-300 font-bold uppercase tracking-wide";
+                feedIcon.textContent = "🥤";
+                feedText.textContent = "FEED PROTEIN";
+                trainIcon.textContent = "🏋️‍♂️";
+                trainText.textContent = "TEEN SQUATS";
+            }
+        }
+
         // BIRTH EVENTS
         function triggerBabyGirlBirth() {
             state.hasDaughter = true;
@@ -1167,6 +1571,7 @@
             babyOverlay.querySelector('.id-modal-content').classList.add('scale-100');
 
             postToGrolyx('baby_girl');
+            updateKidsUI();
         }
 
         function triggerBabyBoyBirth() {
@@ -1189,6 +1594,7 @@
             babyOverlay.querySelector('.id-modal-content').classList.add('scale-100');
 
             postToGrolyx('baby_boy');
+            updateKidsUI();
         }
 
         function closeBabyOverlay() {
