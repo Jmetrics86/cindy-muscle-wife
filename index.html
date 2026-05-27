@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cindy: My Muscle Wife 💖💪</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Retro grid background */
+        .grid-bg {
+            background-color: #0b0f19;
+            background-image: 
+                linear-gradient(rgba(244, 63, 94, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244, 63, 94, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Scanline effect for retro feel */
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+            background-size: 100% 4px;
+            z-index: 30;
+            pointer-events: none;
+        }
+
+        /* Glow effect */
+        .glow-pink {
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
+        }
+        .glow-green {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+        }
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Custom keyframes for exercises */
+        @keyframes squat {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(30px) scaleY(0.85); }
+        }
+        @keyframes bicep-curl-left {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-50deg); }
+        }
+        @keyframes bicep-curl-right {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(50deg); }
+        }
+        @keyframes running {
+            0% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+            100% { transform: translateY(0) rotate(-2deg); }
+        }
+        @keyframes sweat-float {
+            0% { transform: translateY(0) scale(0.6); opacity: 1; }
+            100% { transform: translateY(-40px) scale(1.1); opacity: 0; }
+        }
+        @keyframes heart-float {
+            0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5) rotate(15deg); opacity: 0; }
+        }
+        @keyframes screenshake {
+            0%, 100% { transform: translate(0, 0); }
+            10%, 30%, 50%, 70%, 90% { transform: translate(-4px, 2px); }
+            20%, 40%, 60%, 80% { transform: translate(4px, -2px); }
+        }
+
+        .animate-squat { animation: squat 0.6s ease-in-out infinite; }
+        .animate-curl-l { animation: bicep-curl-left 0.5s ease-in-out infinite; }
+        .animate-curl-r { animation: bicep-curl-right 0.5s ease-in-out infinite; }
+        .animate-running { animation: running 0.25s linear infinite; }
+        .animate-shake { animation: screenshake 0.4s ease-in-out; }
+
+        .sweat-drop {
+            position: absolute;
+            color: #38bdf8;
+            font-size: 20px;
+            pointer-events: none;
+            animation: sweat-float 0.8s ease-out forwards;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #f43f5e;
+            font-size: 24px;
+            pointer-events: none;
+            animation: heart-float 1.5s ease-out forwards;
+            z-index: 50;
+        }
+
+        /* Scrollbar styling for Grolyx feed */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 2px;
+        }
+
+        /* Broken button style override */
+        .broken-cracks {
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0,0,0,0.15),
+                rgba(0,0,0,0.15) 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 flex items-center justify-center min-h-screen p-4 overflow-x-hidden md:p-8 select-none">
+
+    <!-- Sound & Music Permission Overlay -->
+    <div id="audio-modal" class="fixed inset-0 bg-slate-950/95 z-50 flex flex-col items-center justify-center p-6 text-center">
+        <div class="max-w-md bg-slate-900 border border-rose-500/30 p-8 rounded-3xl glow-pink">
+            <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-400 mb-4">
+                CINDY: MY MUSCLE WIFE
+            </h1>
+            <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                Welcome, Hubby! Cindy is ready to lift weights, eat protein, and get absolutely jacked! 
+                Please enable game audio so you can hear her flexing, cleaning, and the epic sounds of your romance era.
+            </p>
+            <button id="start-game-btn" class="w-full py-4 bg-gradient-to-r from-rose-500 to-amber-500 text-white font-bold rounded-2xl text-lg hover:opacity-90 transform transition active:scale-95 shadow-lg shadow-rose-500/20">
+                ❤️ Enter the Gym & Home! 🏋️‍♀️
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Mobile Layout Frame -->
+    <div id="game-container" class="max-w-md w-full min-h-[850px] bg-slate-900 shadow-2xl rounded-[40px] border-8 border-slate-800 flex flex-col relative overflow-hidden scanlines grid-bg">
+        
+        <!-- Mobile Status Bar Bezel -->
+        <div class="h-8 bg-slate-950 px-6 flex justify-between items-center text-[10px] text-slate-400 font-mono tracking-wider z-40 border-b border-slate-800/50">
+            <div>Grolyx LTE 📶</div>
+            <div id="clock">12:00 PM</div>
+            <div class="flex items-center gap-1">
+                <span id="battery-pct">88%</span>
+                <span class="text-emerald-500">🔋</span>
+            </div>
+        </div>
+
+        <!-- Notification Banner -->
+        <div id="notif-banner" class="absolute top-10 left-4 right-4 bg-slate-950/95 border border-rose-500/30 p-3 rounded-2xl flex items-center gap-3 transform -translate-y-40 transition-transform duration-300 z-50 shadow-xl shadow-black/50">
+            <div class="bg-rose-500 text-white p-2 rounded-xl text-lg">🦛</div>
+            <div class="flex-1">
+                <p class="text-xs font-bold text-rose-400">Grolyx Alert • @cindy_gains</p>
+                <p id="notif-text" class="text-xs text-slate-200 font-medium truncate">Posted a new angry rant!</p>
+            </div>
+            <div class="text-[10px] text-slate-500">now</div>
+        </div>
+
+        <!-- Baby Born Overlay Celebration -->
+        <div id="baby-overlay" class="absolute inset-0 bg-black/80 z-40 flex flex-col items-center justify-center p-6 text-center opacity-0 pointer-events-none transition-opacity duration-500">
+            <div class="transform scale-75 transition-transform duration-500 id-modal-content max-w-sm bg-gradient-to-b from-slate-900 to-purple-950 border-2 border-rose-400 p-8 rounded-3xl text-center">
+                <div id="baby-emoji" class="text-7xl mb-4 animate-bounce">👶👧</div>
+                <h2 id="baby-title" class="text-2xl font-black text-rose-400 tracking-wide mb-2">IT'S A BABY GIRL!</h2>
+                <p id="baby-desc" class="text-slate-300 text-sm mb-6">
+                    A beautiful, strong little girl has joined the family! Look at her adorable chubby biceps! Cindy is incredibly proud.
+                </p>
+                <button onclick="closeBabyOverlay()" class="px-6 py-3 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-bold rounded-xl text-sm transform transition active:scale-95 shadow-md shadow-rose-500/20">
+                    💖 Welcome Baby!
+                </button>
+            </div>
+        </div>
+
+        <!-- STATS / HUD PANEL -->
+        <div class="bg-slate-950/80 p-4 border-b border-slate-800 flex flex-col gap-3 z-30 backdrop-blur-sm">
+            <!-- Header Row -->
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-sm font-black text-rose-400 tracking-wide">CINDY (WIFE)</h2>
+                    <span id="muscle-tier" class="px-2 py-0.5 bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[10px] font-bold rounded-full">
+                        Lv.1 Fit Wife
+                    </span>
+                </div>
+                <div class="text-right">
+                    <div id="muscle-mass-hud" class="text-lg font-black text-amber-400 tracking-tight">110 lbs</div>
+                    <div class="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Muscle Mass</div>
+                </div>
+            </div>
+
+            <!-- Stats Bars Grid -->
+            <div class="grid grid-cols-2 gap-3 text-xs">
+                <!-- Happiness Bar -->
+                <div class="bg-slate-900/90 border border-slate-800 p-2 rounded-xl flex flex-col gap-1">
+                    <div class="flex justify-between font-bold text-rose-300 text-[10px] uppercase">
+                        <span>Happiness</span>
+                        <span id="happiness-val">80%</span>
+                    </div>
+                    <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden">
+                        <div id="happiness-bar" class="bg-rose-500 h-full transition-all duration-300" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <!-- Cleanliness Bar -->
+                <div class="bg-slate-900/90 border border-slate-800 p-2 rounded-xl flex flex-col gap-1">
+                    <div class="flex justify-between font-bold text-cyan-300 text-[10px] uppercase">
+                        <span>House Clean</span>
+                        <span id="cleanliness-val">100%</span>
+                    </div>
+                    <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden">
+                        <div id="cleanliness-bar" class="bg-cyan-500 h-full transition-all duration-300" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME WORLD WINDOW (Wife & Home Environment) -->
+        <div id="home-view" class="flex-1 flex flex-col relative overflow-hidden px-4 py-2 min-h-[340px]">
+            <!-- Dust Overlay for Dirtiness representation -->
+            <div id="dust-overlay" class="absolute inset-0 pointer-events-none z-20 mix-blend-screen opacity-0 transition-opacity duration-500 bg-black/10"></div>
+            
+            <!-- Room decorations -->
+            <div class="absolute inset-x-0 bottom-0 h-[100px] bg-slate-800/30 border-t-2 border-slate-700/30 pointer-events-none"></div>
+            
+            <!-- Home Poster: Gym Poster and Marriage Poster -->
+            <div class="absolute left-4 top-4 border border-rose-500/20 bg-slate-950/80 px-2 py-1 rounded text-[8px] text-rose-300 flex items-center gap-1 shadow font-bold z-10">
+                💒 Married 💖
+            </div>
+            <div class="absolute right-4 top-4 border border-amber-500/20 bg-slate-950/80 px-2 py-1 rounded text-[8px] text-amber-300 flex items-center gap-1 shadow font-bold z-10">
+                🏋️‍♀️ Gainz or Pain! 💪
+            </div>
+
+            <!-- Treadmill visual (appears during running) -->
+            <div id="treadmill-sprite" class="absolute left-1/2 -translate-x-1/2 bottom-[10px] w-64 h-16 bg-gradient-to-t from-slate-800 to-slate-900 border border-slate-700 rounded-lg hidden z-10">
+                <div class="absolute bottom-2 inset-x-2 h-1.5 bg-slate-950 rounded overflow-hidden">
+                    <div class="h-full bg-slate-500 w-1/2 animate-pulse"></div>
+                </div>
+                <div class="absolute top-1 right-2 w-1.5 h-10 bg-slate-700 rounded border border-slate-600"></div>
+            </div>
+
+            <!-- THE MAIN CHARACTER: CINDY SVG AVATAR -->
+            <div id="cindy-sprite-wrapper" class="mx-auto mt-auto mb-2 relative transition-all duration-300 z-20 flex flex-col items-center">
+                
+                <!-- Sweat/Effort Floating Emojis anchor -->
+                <div id="emojis-anchor" class="absolute -top-12 inset-x-0 flex justify-center pointer-events-none h-12"></div>
+
+                <!-- Cindy Dynamic SVG -->
+                <svg id="cindy-svg" width="220" height="250" viewBox="0 0 220 250" class="overflow-visible">
+                    <defs>
+                        <!-- Hair Gradient -->
+                        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fb7185" />
+                            <stop offset="100%" stop-color="#db2777" />
+                        </linearGradient>
+                        <!-- Skin Gradient -->
+                        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffe4e6" />
+                            <stop offset="100%" stop-color="#fecdd3" />
+                        </linearGradient>
+                        <!-- Outfit Gradient -->
+                        <linearGradient id="outfitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#4f46e5" />
+                            <stop offset="100%" stop-color="#3b82f6" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Back Hair (Ponytail) -->
+                    <path id="back-hair" d="M110,60 C70,40 50,80 50,110 C50,140 70,150 90,140" fill="url(#hairGrad)" stroke="#9d174d" stroke-width="1.5" />
+                    <!-- Ponytail Bow -->
+                    <circle cx="85" cy="80" r="10" fill="#fbbf24" />
+                    <circle cx="95" cy="75" r="7" fill="#fbbf24" />
+
+                    <!-- Left Arm Bicep (Base & Scaled Muscle) -->
+                    <!-- We adjust scale & coordinates dynamically in JS using CSS variables -->
+                    <g id="left-arm-group" style="transform-origin: 80px 130px;">
+                        <!-- Normal Arm -->
+                        <path d="M80,130 Q50,130 50,150" fill="none" stroke="url(#skinGrad)" stroke-width="20" stroke-linecap="round" />
+                        <!-- Bicep Muscle Ellipse (Grows with muscle) -->
+                        <ellipse id="left-bicep" cx="58" cy="132" rx="10" ry="10" fill="url(#skinGrad)" stroke="#f43f5e" stroke-width="1.5" />
+                        <!-- Left Forearm & Fist -->
+                        <path d="M50,150 L40,180" fill="none" stroke="url(#skinGrad)" stroke-width="16" stroke-linecap="round" />
+                        <!-- Dumbbell (Drawn if exercising curls) -->
+                        <g id="left-dumbbell" class="hidden">
+                            <rect x="22" y="174" width="36" height="6" rx="2" fill="#475569" />
+                            <rect x="16" y="166" width="10" height="22" rx="2" fill="#1e293b" />
+                            <rect x="54" y="166" width="10" height="22" rx="2" fill="#1e293b" />
+                        </g>
+                    </g>
+
+                    <!-- Right Arm Bicep (Base & Scaled Muscle) -->
+                    <g id="right-arm-group" style="transform-origin: 140px 130px;">
+                        <!-- Normal Arm -->
+                        <path d="M140,130 Q170,130 170,150" fill="none" stroke="url(#skinGrad)" stroke-width="20" stroke-linecap="round" />
+                        <!-- Bicep Muscle Ellipse (Grows with muscle) -->
+                        <ellipse id="right-bicep" cx="162" cy="132" rx="10" ry="10" fill="url(#skinGrad)" stroke="#f43f5e" stroke-width="1.5" />
+                        <!-- Right Forearm & Fist -->
+                        <path d="M170,150 L180,180" fill="none" stroke="url(#skinGrad)" stroke-width="16" stroke-linecap="round" />
+                        <!-- Dumbbell (Drawn if exercising curls) -->
+                        <g id="right-dumbbell" class="hidden">
+                            <rect x="162" y="174" width="36" height="6" rx="2" fill="#475569" />
+                            <rect x="156" y="166" width="10" height="22" rx="2" fill="#1e293b" />
+                            <rect x="194" y="166" width="10" height="22" rx="2" fill="#1e293b" />
+                        </g>
+                    </g>
+
+                    <!-- Legs (Squatting or standing) -->
+                    <g id="legs-group">
+                        <!-- Left Leg -->
+                        <path id="left-leg" d="M95,200 L95,245" stroke="url(#skinGrad)" stroke-width="18" stroke-linecap="round" />
+                        <path d="M95,245 L85,250" stroke="#f43f5e" stroke-width="12" stroke-linecap="round" /> <!-- shoe -->
+                        <!-- Right Leg -->
+                        <path id="right-leg" d="M125,200 L125,245" stroke="url(#skinGrad)" stroke-width="18" stroke-linecap="round" />
+                        <path d="M125,245 L135,250" stroke="#f43f5e" stroke-width="12" stroke-linecap="round" /> <!-- shoe -->
+                    </g>
+
+                    <!-- Torso (Athletic body) -->
+                    <path d="M85,130 L135,130 L125,205 L95,205 Z" fill="url(#skinGrad)" />
+                    <!-- Sports Crop Top -->
+                    <path d="M85,130 L135,130 L130,165 L90,165 Z" fill="url(#outfitGrad)" stroke="#1e40af" stroke-width="1.5" />
+                    <!-- Sports crop straps -->
+                    <path d="M95,130 L95,115 L102,115 L100,130" fill="#1e40af" />
+                    <path d="M125,130 L125,115 L118,115 L120,130" fill="#1e40af" />
+                    <!-- Toned Six-Pack Abs (Grows more defined with muscle) -->
+                    <g id="sixpack" stroke="#fda4af" stroke-width="2" opacity="0.3" stroke-linecap="round">
+                        <line x1="110" y1="170" x2="110" y2="200" />
+                        <!-- Pack 1 -->
+                        <line x1="102" y1="175" x2="118" y2="175" />
+                        <!-- Pack 2 -->
+                        <line x1="100" y1="185" x2="120" y2="185" />
+                        <!-- Pack 3 -->
+                        <line x1="102" y1="195" x2="118" y2="195" />
+                    </g>
+
+                    <!-- Neck -->
+                    <rect x="102" y="100" width="16" height="20" fill="url(#skinGrad)" />
+
+                    <!-- Head & Face -->
+                    <circle cx="110" cy="90" r="28" fill="url(#skinGrad)" stroke="#fda4af" stroke-width="1" />
+
+                    <!-- Hair Front / Bangs -->
+                    <path d="M82,90 C82,60 138,60 138,90 C138,65 125,65 110,75 C95,65 82,65 82,90" fill="url(#hairGrad)" stroke="#9d174d" stroke-width="1" />
+
+                    <!-- Expression Group (Mouth, Eyes, Eyebrows) -->
+                    <g id="expression-group">
+                        <!-- Eyebrows (Dynamic: Happy/Angry/Neutral) -->
+                        <path id="eyebrow-left" d="M93,82 Q98,79 101,82" stroke="#9d174d" stroke-width="2" fill="none" stroke-linecap="round" />
+                        <path id="eyebrow-right" d="M119,82 Q122,79 127,82" stroke="#9d174d" stroke-width="2" fill="none" stroke-linecap="round" />
+                        
+                        <!-- Eyes (Dynamic: Happy/Angry/Neutral/Blinking) -->
+                        <!-- Normal Left Eye -->
+                        <g id="eye-left">
+                            <circle cx="98" cy="90" r="4" fill="#0f172a" />
+                            <circle cx="97" cy="89" r="1.5" fill="#ffffff" />
+                        </g>
+                        <!-- Normal Right Eye -->
+                        <g id="eye-right">
+                            <circle cx="122" cy="90" r="4" fill="#0f172a" />
+                            <circle cx="121" cy="89" r="1.5" fill="#ffffff" />
+                        </g>
+                        <!-- Closed/Happy/Blinking Eyes -->
+                        <path id="eye-happy-left" class="hidden" d="M94,92 Q98,87 102,92" stroke="#0f172a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <path id="eye-happy-right" class="hidden" d="M118,92 Q122,87 126,92" stroke="#0f172a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+                        <!-- Blush cheeks -->
+                        <ellipse cx="92" cy="95" rx="4" ry="2" fill="#fb7185" opacity="0.6" />
+                        <ellipse cx="128" cy="95" rx="4" ry="2" fill="#fb7185" opacity="0.6" />
+
+                        <!-- Mouth (Dynamic: Happy Smile, Angry Frown, Concentrating Grit) -->
+                        <path id="mouth" d="M105,101 Q110,106 115,101" stroke="#9d174d" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                    </g>
+                </svg>
+
+                <!-- Sweating effect / steam graphic indicators -->
+                <div id="anger-mark" class="absolute -top-4 right-10 text-xl font-bold text-rose-500 hidden animate-bounce">💢</div>
+                <div id="sweat-mark" class="absolute top-2 left-10 text-xl hidden">💦</div>
+            </div>
+
+            <!-- CHILDREN CRIB AREA (Appears beneath or beside Cindy once born) -->
+            <div id="cribs-container" class="absolute bottom-[10px] left-4 flex gap-2 z-30 transition-all duration-500 scale-0 origin-bottom-left">
+                <!-- Baby Girl Crib -->
+                <div id="crib-girl" class="bg-gradient-to-b from-rose-100 to-rose-200 border-2 border-rose-400 p-2 rounded-2xl flex flex-col items-center shadow-lg relative hidden hover:scale-105 transform transition duration-200">
+                    <span class="absolute -top-2 -right-1 text-xs">🎀</span>
+                    <div class="text-3xl animate-bounce" style="animation-duration: 2.5s;">👶</div>
+                    <div class="text-[8px] font-extrabold text-rose-700 uppercase tracking-tight">Baby Girl</div>
+                    <!-- Mini bicep flex indicator -->
+                    <div class="text-[7px] text-rose-500 font-bold bg-white px-1 rounded">💪 2lbs</div>
+                </div>
+
+                <!-- Baby Boy Crib -->
+                <div id="crib-boy" class="bg-gradient-to-b from-sky-100 to-sky-200 border-2 border-sky-400 p-2 rounded-2xl flex flex-col items-center shadow-lg relative hidden hover:scale-105 transform transition duration-200">
+                    <span class="absolute -top-2 -right-1 text-xs">🧢</span>
+                    <div class="text-3xl animate-bounce" style="animation-duration: 2s;">👶</div>
+                    <div class="text-[8px] font-extrabold text-sky-700 uppercase tracking-tight">Baby Boy</div>
+                    <div class="text-[7px] text-sky-500 font-bold bg-white px-1 rounded">💪 4lbs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GROLYX SOCIAL MEDIA FEED PANEL (Twitter/X Clone) -->
+        <div class="bg-slate-950/90 border-t border-b border-slate-800 flex flex-col h-[180px] z-30">
+            <!-- Feed Header -->
+            <div class="bg-slate-950 px-4 py-2 border-b border-slate-800/80 flex justify-between items-center text-xs font-black tracking-wider text-rose-400">
+                <div class="flex items-center gap-1.5">
+                    <span class="text-base text-slate-100">𝕏</span> 
+                    <span>GROLYX / @cindy_gains</span>
+                </div>
+                <div class="h-2 w-2 rounded-full bg-rose-500 animate-pulse"></div>
+            </div>
+
+            <!-- Scrollable Post Area -->
+            <div id="grolyx-feed" class="flex-1 overflow-y-auto p-3 flex flex-col gap-3 custom-scrollbar text-xs">
+                <!-- Sample initial posts -->
+                <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/50 flex flex-col gap-1 transition duration-300">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="font-black text-slate-200">Cindy Gainz-Wife</span>
+                        <span>10m ago</span>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed">
+                        Just did 200 squats and washed all the protein shake shakers. My quads are like solid granite. Hubby is a lucky man! 🦵💖 #GainzWife #WorkoutRoutine
+                    </p>
+                </div>
+
+                <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/50 flex flex-col gap-1 transition duration-300">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="font-black text-slate-200">Cindy Gainz-Wife</span>
+                        <span>1h ago</span>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed">
+                        If this house doesn't stay absolutely spotless I swear I am going to throw a 45lb plate through the wall. Love you guys! 😘🧹 #Housework #GymWife
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTROLS & INTERACTIVE ACTIONS PANEL (Bottom Grid) -->
+        <div id="controls-panel" class="bg-slate-950 p-4 flex flex-col gap-4 z-30">
+            <!-- Grid of normal actions -->
+            <div class="grid grid-cols-3 gap-2">
+                <!-- Clean button -->
+                <button onclick="cleanHouse()" class="py-3 bg-gradient-to-b from-cyan-600 to-cyan-800 text-white font-black text-xs rounded-xl flex flex-col items-center justify-center gap-1 hover:from-cyan-500 hover:to-cyan-700 active:scale-95 transform transition shadow-md shadow-cyan-500/10 border border-cyan-400/20">
+                    <span class="text-lg">🧹</span>
+                    <span>CLEAN HOUSE</span>
+                </button>
+
+                <!-- Workout Trigger -->
+                <button onclick="triggerWorkout('curl')" class="py-3 bg-gradient-to-b from-amber-600 to-amber-800 text-white font-black text-xs rounded-xl flex flex-col items-center justify-center gap-1 hover:from-amber-500 hover:to-amber-700 active:scale-95 transform transition shadow-md shadow-amber-500/10 border border-amber-400/20">
+                    <span class="text-lg">💪</span>
+                    <span>BICEP CURL</span>
+                </button>
+
+                <!-- Squat Trigger -->
+                <button onclick="triggerWorkout('squat')" class="py-3 bg-gradient-to-b from-orange-600 to-orange-800 text-white font-black text-xs rounded-xl flex flex-col items-center justify-center gap-1 hover:from-orange-500 hover:to-orange-700 active:scale-95 transform transition shadow-md shadow-orange-500/10 border border-orange-400/20">
+                    <span class="text-lg">🏋️‍♀️</span>
+                    <span>HEAVY SQUAT</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+                <!-- Run on Treadmill -->
+                <button onclick="triggerWorkout('run')" class="py-2.5 bg-gradient-to-b from-indigo-600 to-indigo-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-2 hover:from-indigo-500 hover:to-indigo-700 active:scale-95 transform transition border border-indigo-400/20">
+                    <span class="text-lg">🏃‍♀️</span>
+                    <span>TREADMILL RUN</span>
+                </button>
+
+                <!-- Compliment -->
+                <button onclick="interactTalk()" class="py-2.5 bg-gradient-to-b from-purple-600 to-purple-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-2 hover:from-purple-500 hover:to-purple-700 active:scale-95 transform transition border border-purple-400/20">
+                    <span class="text-lg">💬</span>
+                    <span>COMPLIMENT WIFE</span>
+                </button>
+            </div>
+
+            <!-- THE FAMOUS ROMANCE BUTTON -->
+            <div class="relative w-full h-16" id="romance-btn-container">
+                <button id="romance-btn" onclick="pressRomance()" class="absolute inset-0 bg-gradient-to-r from-rose-500 via-pink-500 to-rose-500 text-white font-extrabold text-sm rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:opacity-95 shadow-lg shadow-rose-500/30 border-2 border-rose-400 transform transition-all active:scale-95 origin-center z-30 overflow-hidden">
+                    <!-- Heart beat flare overlay -->
+                    <div class="absolute inset-0 bg-white/10 pointer-events-none opacity-0 transition-opacity duration-300" id="btn-flash"></div>
+                    <span class="text-xl animate-pulse">💖 ROMANCE CINDY 💖</span>
+                    <span id="romance-sub" class="text-[9px] font-bold text-rose-100 tracking-wider">Start a Family Era</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOUND SYNTHESIZER (WEB AUDIO API) -->
+    <script>
+        // Web Audio API Context
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // Play procedural synthesizer sounds
+        function playSound(type) {
+            if (!audioCtx) return;
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'flex') {
+                // Pitch rises for biceps flex
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(600, now + 0.4);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            } else if (type === 'sweep') {
+                // Noise-like swept filter/frequency sweep for sweep/clean
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(800, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.3);
+                
+                // Add lowpass filter to make it sound muffled like a sweep
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(1200, now);
+                filter.frequency.exponentialRampToValueAtTime(200, now + 0.3);
+                
+                osc.disconnect(gain);
+                osc.connect(filter);
+                filter.connect(gain);
+
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            } else if (type === 'notif') {
+                // Quick digital chirp for Grolyx feed posts
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(880, now);
+                osc.frequency.setValueAtTime(1320, now + 0.08);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                osc.start(now);
+                osc.stop(now + 0.25);
+            } else if (type === 'coo') {
+                // Cute vibrating baby coo
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440, now);
+                // Vibrato effect
+                osc.frequency.linearRampToValueAtTime(520, now + 0.1);
+                osc.frequency.linearRampToValueAtTime(440, now + 0.2);
+                osc.frequency.linearRampToValueAtTime(480, now + 0.35);
+                
+                gain.gain.setValueAtTime(0.12, now);
+                gain.gain.exponentialRampToValueAtTime(0.005, now + 0.4);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            } else if (type === 'clank') {
+                // Loud metallic break for Romance button falling off
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.setValueAtTime(110, now + 0.05);
+
+                const osc2 = audioCtx.createOscillator();
+                osc2.type = 'square';
+                osc2.frequency.setValueAtTime(312, now);
+                osc2.frequency.setValueAtTime(55, now + 0.1);
+                
+                const gain2 = audioCtx.createGain();
+                osc2.connect(gain2);
+                gain2.connect(audioCtx.destination);
+
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+
+                gain2.gain.setValueAtTime(0.2, now);
+                gain2.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+
+                osc.start(now);
+                osc2.start(now);
+                osc.stop(now + 0.6);
+                osc2.stop(now + 0.6);
+            } else if (type === 'romance') {
+                // Arpeggio for love/romance
+                const notes = [261.63, 329.63, 392.00, 523.25]; // C4, E4, G4, C5
+                notes.forEach((freq, idx) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.type = 'sine';
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.frequency.setValueAtTime(freq, now + idx * 0.1);
+                    g.gain.setValueAtTime(0.0, now);
+                    g.gain.linearRampToValueAtTime(0.12, now + idx * 0.1 + 0.05);
+                    g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.1 + 0.4);
+                    o.start(now + idx * 0.1);
+                    o.stop(now + idx * 0.1 + 0.4);
+                });
+            } else if (type === 'fanfare') {
+                // Short cute horn fanfare for baby birth
+                const notes = [392.00, 440.00, 493.88, 587.33, 659.25, 783.99]; // G4, A4, B4, D5, E5, G5
+                notes.forEach((freq, idx) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.type = 'triangle';
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.frequency.setValueAtTime(freq, now + idx * 0.08);
+                    g.gain.setValueAtTime(0.08, now + idx * 0.08);
+                    g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.3);
+                    o.start(now + idx * 0.08);
+                    o.stop(now + idx * 0.08 + 0.35);
+                });
+            } else if (type === 'curse-beep') {
+                // Game censor beep
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(1000, now);
+                gain.gain.setValueAtTime(0.05, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+                osc.start(now);
+                osc.stop(now + 0.25);
+            }
+        }
+    </script>
+
+    <!-- MAIN GAME SIMULATION CODE -->
+    <script>
+        // GAME STATE
+        let state = {
+            muscle: 10,        // 0 to 150+ (controls arm scaling)
+            happiness: 80,    // 0 to 100
+            cleanliness: 100,  // 0 to 100 (decreases over time)
+            romanceCount: 0,   // 0, 1, 2, 3+
+            currentActivity: 'idle', // idle, squat, curl, run
+            lastAngryPostTime: 0,
+            hasDaughter: false,
+            hasSon: false,
+            isBrokenBtnActive: false
+        };
+
+        // DOM Elements
+        const audioModal = document.getElementById('audio-modal');
+        const startGameBtn = document.getElementById('start-game-btn');
+        const clockEl = document.getElementById('clock');
+        const cleanValEl = document.getElementById('cleanliness-val');
+        const cleanBarEl = document.getElementById('cleanliness-bar');
+        const happyValEl = document.getElementById('happiness-val');
+        const happyBarEl = document.getElementById('happiness-bar');
+        const muscleHudEl = document.getElementById('muscle-mass-hud');
+        const muscleTierEl = document.getElementById('muscle-tier');
+        const grolyxFeed = document.getElementById('grolyx-feed');
+        const notifBanner = document.getElementById('notif-banner');
+        const notifText = document.getElementById('notif-text');
+        const dustOverlay = document.getElementById('dust-overlay');
+        const cindyWrapper = document.getElementById('cindy-sprite-wrapper');
+        const angerMark = document.getElementById('anger-mark');
+        const sweatMark = document.getElementById('sweat-mark');
+        const cribsContainer = document.getElementById('cribs-container');
+        const cribGirl = document.getElementById('crib-girl');
+        const cribBoy = document.getElementById('crib-boy');
+        const babyOverlay = document.getElementById('baby-overlay');
+        const babyTitle = document.getElementById('baby-title');
+        const babyDesc = document.getElementById('baby-desc');
+        const babyEmoji = document.getElementById('baby-emoji');
+        const romanceBtn = document.getElementById('romance-btn');
+        const romanceSub = document.getElementById('romance-sub');
+        const gameContainer = document.getElementById('game-container');
+
+        // SVG elements to mutate
+        const leftBicep = document.getElementById('left-bicep');
+        const rightBicep = document.getElementById('right-bicep');
+        const leftArmGroup = document.getElementById('left-arm-group');
+        const rightArmGroup = document.getElementById('right-arm-group');
+        const leftDumbbell = document.getElementById('left-dumbbell');
+        const rightDumbbell = document.getElementById('right-dumbbell');
+        const leftLeg = document.getElementById('left-leg');
+        const rightLeg = document.getElementById('right-leg');
+        const cindySvg = document.getElementById('cindy-svg');
+        const mouthPath = document.getElementById('mouth');
+        const eyeLeft = document.getElementById('eye-left');
+        const eyeRight = document.getElementById('eye-right');
+        const eyeHappyLeft = document.getElementById('eye-happy-left');
+        const eyeHappyRight = document.getElementById('eye-happy-right');
+        const eyebrowLeft = document.getElementById('eyebrow-left');
+        const eyebrowRight = document.getElementById('eyebrow-right');
+        const sixPack = document.getElementById('sixpack');
+        const treadmillSprite = document.getElementById('treadmill-sprite');
+
+        // Start Game
+        startGameBtn.addEventListener('click', () => {
+            initAudio();
+            audioModal.style.display = 'none';
+            // Start simulation tickers
+            startSimulation();
+        });
+
+        // Time ticker
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // 0 should be 12
+            clockEl.textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // SIMULATION LOGIC LOOP (Runs every 1 second)
+        function startSimulation() {
+            setInterval(() => {
+                // Gradual accumulation of dust / drop in cleanliness
+                let cleanlinessLoss = 1.0;
+                if (state.currentActivity !== 'idle') {
+                    cleanlinessLoss = 2.5; // Working out gets the house dirtier (sweat, chalk!)
+                }
+                updateCleanliness(-cleanlinessLoss);
+
+                // Normal decay of happiness if house is filthy
+                if (state.cleanliness < 35) {
+                    updateHappiness(-1.5);
+                    // Proactive Grolyx cursing alert
+                    triggerDirtyHouseCursing();
+                }
+
+                // Random coos from babies if present
+                if (state.hasDaughter || state.hasSon) {
+                    if (Math.random() < 0.12) {
+                        playSound('coo');
+                    }
+                }
+            }, 1000);
+        }
+
+        // State updaters & HUD sync
+        function updateCleanliness(amt) {
+            state.cleanliness = Math.max(0, Math.min(100, state.cleanliness + amt));
+            cleanValEl.textContent = `${Math.round(state.cleanliness)}%`;
+            cleanBarEl.style.width = `${state.cleanliness}%`;
+
+            // Adjust clean bar color
+            if (state.cleanliness < 35) {
+                cleanBarEl.className = "bg-rose-500 h-full transition-all duration-300";
+                dustOverlay.style.opacity = "0.45";
+            } else if (state.cleanliness < 70) {
+                cleanBarEl.className = "bg-amber-500 h-full transition-all duration-300";
+                dustOverlay.style.opacity = "0.2";
+            } else {
+                cleanBarEl.className = "bg-cyan-500 h-full transition-all duration-300";
+                dustOverlay.style.opacity = "0";
+            }
+
+            updateExpression();
+        }
+
+        function updateHappiness(amt) {
+            state.happiness = Math.max(0, Math.min(100, state.happiness + amt));
+            happyValEl.textContent = `${Math.round(state.happiness)}%`;
+            happyBarEl.style.width = `${state.happiness}%`;
+
+            if (state.happiness < 35) {
+                happyBarEl.className = "bg-rose-500 h-full transition-all duration-300";
+            } else if (state.happiness < 70) {
+                happyBarEl.className = "bg-amber-500 h-full transition-all duration-300";
+            } else {
+                happyBarEl.className = "bg-rose-500 h-full transition-all duration-300";
+            }
+
+            updateExpression();
+        }
+
+        function updateMuscle(amt) {
+            state.muscle = Math.max(10, state.muscle + amt);
+            
+            // HUD sync
+            const estimatedLbs = 100 + Math.round(state.muscle * 1.5);
+            muscleHudEl.textContent = `${estimatedLbs} lbs`;
+
+            // Tier upgrade
+            let tier = "Lv.1 Fit Wife";
+            if (state.muscle >= 100) {
+                tier = "Lv.5 Giga-Wife 👑";
+            } else if (state.muscle >= 70) {
+                tier = "Lv.4 Bulk Beast 🦍";
+            } else if (state.muscle >= 45) {
+                tier = "Lv.3 Powerlifter 🏋️‍♀️";
+            } else if (state.muscle >= 25) {
+                tier = "Lv.2 Gym Babe 💅";
+            }
+            muscleTierEl.textContent = tier;
+
+            // Render muscle scaling directly in the SVG elements!
+            // Radius of bicep circles grows
+            const size = Math.min(65, 8 + (state.muscle * 0.45));
+            leftBicep.setAttribute('rx', size);
+            leftBicep.setAttribute('ry', size * 0.85);
+            rightBicep.setAttribute('rx', size);
+            rightBicep.setAttribute('ry', size * 0.85);
+
+            // Bicep center point offsets a bit outward for larger muscles
+            const bOffset = Math.min(25, (state.muscle * 0.15));
+            leftBicep.setAttribute('cx', 58 - bOffset * 0.5);
+            rightBicep.setAttribute('cx', 162 + bOffset * 0.5);
+
+            // Define abs visibility based on muscles
+            const absOpacity = Math.min(0.9, 0.15 + (state.muscle * 0.007));
+            sixPack.setAttribute('opacity', absOpacity);
+
+            updateExpression();
+        }
+
+        // UPDATE EXPRESSION OF THE SVG FACE
+        function updateExpression() {
+            // Reset facial features first
+            mouthPath.setAttribute('d', "M105,101 Q110,106 115,101"); // neutral smile
+            mouthPath.setAttribute('stroke-width', "2.5");
+            eyeLeft.classList.remove('hidden');
+            eyeRight.classList.remove('hidden');
+            eyeHappyLeft.classList.add('hidden');
+            eyeHappyRight.classList.add('hidden');
+            eyebrowLeft.setAttribute('d', "M93,82 Q98,79 101,82"); // neutral
+            eyebrowRight.setAttribute('d', "M119,82 Q122,79 127,82");
+            angerMark.classList.add('hidden');
+            sweatMark.classList.add('hidden');
+
+            if (state.currentActivity !== 'idle') {
+                // Flexing/concentrating face
+                mouthPath.setAttribute('d', "M104,101 L116,101"); // gritting teeth/flat line
+                eyebrowLeft.setAttribute('d', "M93,84 L101,80"); // intense angles
+                eyebrowRight.setAttribute('d', "M119,80 L127,84");
+                sweatMark.classList.remove('hidden');
+            } else if (state.cleanliness < 35) {
+                // Furious angry face
+                mouthPath.setAttribute('d', "M105,104 Q110,98 115,104"); // frown
+                eyebrowLeft.setAttribute('d', "M93,79 L101,84"); // angry downslant
+                eyebrowRight.setAttribute('d', "M119,84 L127,79");
+                angerMark.classList.remove('hidden');
+            } else if (state.happiness > 75) {
+                // Happy/satisfied face
+                eyeLeft.classList.add('hidden');
+                eyeRight.classList.add('hidden');
+                eyeHappyLeft.classList.remove('hidden');
+                eyeHappyRight.classList.remove('hidden');
+                mouthPath.setAttribute('d', "M104,98 Q110,107 116,98"); // wide smile
+            }
+        }
+
+        // WORKOUT TRIGGERS
+        function triggerWorkout(activity) {
+            if (state.currentActivity !== 'idle') return; // busy with current activity
+
+            state.currentActivity = activity;
+            updateExpression();
+
+            // Clear previous animation classes
+            cindySvg.classList.remove('animate-squat', 'animate-running');
+            leftArmGroup.style.animation = '';
+            rightArmGroup.style.animation = '';
+            leftDumbbell.classList.add('hidden');
+            rightDumbbell.classList.add('hidden');
+            treadmillSprite.classList.add('hidden');
+
+            // Play flex sound
+            playSound('flex');
+
+            // Apply specific workout graphic changes
+            if (activity === 'squat') {
+                cindySvg.classList.add('animate-squat');
+                spawnSweatDrops();
+                
+                // Add specific training effects over 2 seconds
+                setTimeout(() => {
+                    cindySvg.classList.remove('animate-squat');
+                    state.currentActivity = 'idle';
+                    updateMuscle(6);
+                    updateCleanliness(-8); // Sweat chalk!
+                    updateHappiness(5);
+                    postToGrolyx('workout_squat');
+                }, 2000);
+
+            } else if (activity === 'curl') {
+                // Show dumbbells
+                leftDumbbell.classList.remove('hidden');
+                rightDumbbell.classList.remove('hidden');
+                // Apply curl rotate animation
+                leftArmGroup.style.animation = 'bicep-curl-left 0.6s ease-in-out infinite';
+                rightArmGroup.style.animation = 'bicep-curl-right 0.6s ease-in-out infinite';
+                spawnSweatDrops();
+
+                setTimeout(() => {
+                    leftDumbbell.classList.add('hidden');
+                    rightDumbbell.classList.add('hidden');
+                    leftArmGroup.style.animation = '';
+                    rightArmGroup.style.animation = '';
+                    state.currentActivity = 'idle';
+                    updateMuscle(8);
+                    updateCleanliness(-6);
+                    updateHappiness(4);
+                    postToGrolyx('workout_curl');
+                }, 2000);
+
+            } else if (activity === 'run') {
+                cindySvg.classList.add('animate-running');
+                treadmillSprite.classList.remove('hidden');
+                spawnSweatDrops();
+
+                setTimeout(() => {
+                    cindySvg.classList.remove('animate-running');
+                    treadmillSprite.classList.add('hidden');
+                    state.currentActivity = 'idle';
+                    updateMuscle(4);
+                    updateCleanliness(-4);
+                    updateHappiness(15); // Endorphin high!
+                    postToGrolyx('workout_run');
+                }, 2000);
+            }
+        }
+
+        // SPAWN SWEAT PARTICLES
+        function spawnSweatDrops() {
+            let interval = setInterval(() => {
+                if (state.currentActivity === 'idle') {
+                    clearInterval(interval);
+                    return;
+                }
+                const drop = document.createElement('div');
+                drop.className = 'sweat-drop';
+                drop.innerHTML = Math.random() < 0.5 ? '💦' : '💧';
+                
+                // Random position relative to avatar container
+                const x = 50 + (Math.random() * 120);
+                const y = 80 + (Math.random() * 80);
+                drop.style.left = `${x}px`;
+                drop.style.top = `${y}px`;
+
+                cindyWrapper.appendChild(drop);
+
+                setTimeout(() => {
+                    drop.remove();
+                }, 800);
+            }, 300);
+        }
+
+        // CLEAN HOUSE MECHANIC
+        function cleanHouse() {
+            if (state.currentActivity !== 'idle') return;
+            playSound('sweep');
+
+            // Temporary visual sweep effect
+            state.currentActivity = 'cleaning';
+            updateExpression();
+
+            // Create little swept sparkle stars/dust flying away
+            for(let i=0; i<10; i++) {
+                setTimeout(() => {
+                    const spark = document.createElement('div');
+                    spark.className = 'absolute text-base pointer-events-none z-40 transition-all duration-700';
+                    spark.innerHTML = Math.random() < 0.5 ? '✨' : '💨';
+                    spark.style.left = `${Math.random() * 80 + 10}%`;
+                    spark.style.top = `${Math.random() * 60 + 20}%`;
+                    gameContainer.appendChild(spark);
+
+                    // Animate away
+                    setTimeout(() => {
+                        spark.style.transform = 'translateY(-60px) scale(0)';
+                        spark.style.opacity = '0';
+                    }, 50);
+
+                    setTimeout(() => spark.remove(), 750);
+                }, i * 100);
+            }
+
+            setTimeout(() => {
+                state.currentActivity = 'idle';
+                updateCleanliness(100); // Full reset!
+                updateHappiness(8);
+                postToGrolyx('clean_house');
+            }, 1200);
+        }
+
+        // INTERACT TALK / COMPLIMENT
+        function interactTalk() {
+            playSound('romance');
+            updateHappiness(12);
+
+            // Spawn floating hearts from her head
+            for(let i=0; i<3; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = '💖';
+                    heart.style.left = `${100 + (Math.random() * 40 - 20)}px`;
+                    heart.style.top = `60px`;
+                    cindyWrapper.appendChild(heart);
+                    setTimeout(() => heart.remove(), 1500);
+                }, i * 200);
+            }
+
+            postToGrolyx('compliment');
+        }
+
+        // GROLYX FEED GENERATOR (Appends simulated posts)
+        function addGrolyxPost(text) {
+            playSound('notif');
+
+            // Format timestamp
+            const timeStr = "now";
+
+            const postHTML = `
+                <div class="bg-slate-900 border-l-2 border-rose-500 p-2.5 rounded-xl flex flex-col gap-1 shadow-md transform translate-x-10 opacity-0 transition-all duration-300">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="font-black text-rose-300 flex items-center gap-1">Cindy Gainz-Wife 👑 <span class="text-xs">💪</span></span>
+                        <span>${timeStr}</span>
+                    </div>
+                    <p class="text-slate-100 font-medium leading-relaxed">${text}</p>
+                </div>
+            `;
+
+            // Insert into top of feed
+            grolyxFeed.insertAdjacentHTML('afterbegin', postHTML);
+
+            // Trigger enter transition
+            const firstChild = grolyxFeed.firstElementChild;
+            setTimeout(() => {
+                firstChild.classList.remove('translate-x-10', 'opacity-0');
+            }, 50);
+
+            // Banner Notification chirp
+            notifText.textContent = text;
+            notifBanner.classList.remove('-translate-y-40');
+            setTimeout(() => {
+                notifBanner.classList.add('-translate-y-40');
+            }, 3000);
+        }
+
+        // Predefined Grolyx templates based on action
+        function postToGrolyx(actionType) {
+            let posts = [];
+
+            if (actionType === 'workout_squat') {
+                posts = [
+                    "Smashed 315lbs squats for 10 reps today! 🏋️‍♀️ Quad sweep is looking lethal. My husband is cooking high-protein chicken breast for me right now! #GainzWife #GlutesOfSteel #NoWeakHubby",
+                    "Veins popping on leg day! Squatted so hard I cracked the gym floor a bit. Powerlifting life! 💪🦵 #WifeWhoLifts #StrongGenes #PowerCouple"
+                ];
+            } else if (actionType === 'workout_curl') {
+                posts = [
+                    "Bicep peak is officially taller than my husband's head. 💪 Look at this pump! Eat your spinach! #PeakPower #HugeArms #SunsOutGunsOut #WifePride",
+                    "My husband gave me a protein shake after those heavy curls. That's true romance! ❤️🍼 Biceps are rock hard today. #BicepPeak #Gainz"
+                ];
+            } else if (actionType === 'workout_run') {
+                posts = [
+                    "Treadmill sprinted 5 miles at 12mph. Feeling like a goddess. Hubby, you better start running too if you want to keep up with me! 🏃‍♀️💨 #CardioBeast #SweatIsJustFatCrying",
+                    "Endorphins are flowing! Cardio session completed. House is smelling like sweat and victory! #HealthyLifestyle #GigaWife"
+                ];
+            } else if (actionType === 'clean_house') {
+                posts = [
+                    "HOUSE IS OFFICIALLY STERILE. Clean floors, fresh air, protein shakes blending. This is a palace! ✨🧹 #CleanHome #WifeDuties #Aesthetic",
+                    "Just sweated off 2lbs vacuuming. Everything is in perfect order. Happiness level is off the charts! 💖🏡 #OrganizedLife #HappyWife"
+                ];
+            } else if (actionType === 'compliment') {
+                posts = [
+                    "Hubby just called me his 'gorgeous bulk goddess' and massaged my traps. I am crying! 😭❤️ I love him so much. #BestHusband #Blessed #PowerCouple",
+                    "Complimented by my handsome man today! He said my biceps are looking absolutely astronomical. Romance is ALIVE! 💖✨ #WifeAppreciation #BicepWife"
+                ];
+            } else if (actionType === 'baby_girl') {
+                posts = [
+                    "WELCOME BABY GIRL! 👶🎀 Born with beautiful traps and a strong grip! She is already cuddling her tiny pink 2lb dumbbell crib toy. So in love! #BabyGirl #StrongGenes #FamilyEra",
+                    "IT'S A GIRL! 👶🍼 Cindy junior has entered the world. She has my hair and her dad's cute nose. Our legacy of strength begins! ❤️ #BabyGains #Blessed"
+                ];
+            } else if (actionType === 'baby_boy') {
+                posts = [
+                    "IT'S A BABY BOY! 👶🧢 Born lifting his own rattle! Weighs 9lbs of pure muscle. He already tried to flex in his crib. Future Arnold! #BabyBoy #GymBaby #FullFamily",
+                    "WE HAVE A BOY! 🍼💪 Baby brother is here! He and his sister are going to dominate the playgrounds of this city. Hubby and I are complete! #MyBoy #MuscleGenes #PowerlifterBabies"
+                ];
+            }
+
+            const randomPost = posts[Math.floor(Math.random() * posts.length)];
+            addGrolyxPost(randomPost);
+        }
+
+        // TRIGGER DIRTY HOUSE CURSING ON GROLYX
+        function triggerDirtyHouseCursing() {
+            const now = Date.now();
+            // Restrict cursing posts to once every 15 seconds so as not to spam feed
+            if (now - state.lastAngryPostTime < 15000) return;
+            state.lastAngryPostTime = now;
+
+            // Angry / Cursing templates with simulated censoring
+            const angryCursingPosts = [
+                "WHAT THE F*** IS ALL THIS DUST ON THE TABLE?! DO I LIVE WITH A HOARDER?! CLEAN IT UP YOU LAZY S***!!! 🤬☠️ #RAGE #CLEANUP #SICKOFIT #DIRTY",
+                "CURSING ON GROLYX BECAUSE MY HUSBAND IS LEAVING HIS SHAKERS UNWASHED ON THE COUNTER! IF IT IS NOT SPARKLING IN 5 MINUTES, I SWEAR TO G** I AM FLIPPING THE COUCH!!! 🤬🛠️ #REDRUM #DIRTYHOUSE #HELPME",
+                "HOLY S***, THE HOUSE IS A G***** F***ING DUMP! I DID NOT SQUAT 350 LBS TO LIVE IN A SWINE STY! GET THE BROOM OUT NOW OR ELSE!!! 🤬🤬☠️ #GETTOWORK #SICKOFTHIS",
+                "OMG! THE FLUFF AND DIRT IS F***ING SUFFOCATING ME! WHY DO I HAVE TO CLEAN EVERYTHING?! DO SOMETHING USEFUL AND SWEEP!!! 😾🌪️ #FUMING #DIRTYSLOB"
+            ];
+
+            const index = Math.floor(Math.random() * angryCursingPosts.length);
+            const cursePost = angryCursingPosts[index];
+
+            // Play censor beep
+            playSound('curse-beep');
+
+            // Add the angry post to Grolyx Feed
+            addGrolyxPost(cursePost);
+        }
+
+        // ROMANCE BUTTON MECHANIC (The core of the request)
+        function pressRomance() {
+            if (state.isBrokenBtnActive) return;
+
+            // Trigger button light flash
+            const flash = document.getElementById('btn-flash');
+            flash.style.opacity = '1';
+            setTimeout(() => { flash.style.opacity = '0'; }, 150);
+
+            // ROMANCE COUNT LOGIC
+            state.romanceCount += 1;
+
+            if (state.romanceCount === 1) {
+                // FIRST PRESS: BABY GIRL
+                playSound('romance');
+                setTimeout(() => {
+                    playSound('fanfare');
+                    triggerBabyGirlBirth();
+                }, 800);
+
+            } else if (state.romanceCount === 2) {
+                // SECOND PRESS: BABY BOY
+                playSound('romance');
+                setTimeout(() => {
+                    playSound('fanfare');
+                    triggerBabyBoyBirth();
+                }, 800);
+
+            } else if (state.romanceCount === 3) {
+                // THIRD PRESS: ROMANCE BUTTON BREAKS AND FALLS OFF!
+                state.isBrokenBtnActive = true;
+                triggerButtonBreakAndFall();
+            }
+        }
+
+        // BIRTH EVENTS
+        function triggerBabyGirlBirth() {
+            state.hasDaughter = true;
+
+            // Show Baby Cribs area
+            cribsContainer.classList.remove('scale-0');
+            cribsContainer.classList.add('scale-100');
+            cribGirl.classList.remove('hidden');
+
+            // Update baby stats/HUD
+            updateHappiness(30);
+
+            // Setup overlay modal
+            babyEmoji.textContent = "👶🎀";
+            babyTitle.textContent = "IT'S A BABY GIRL!";
+            babyDesc.textContent = "Congratulations! You and Cindy had a beautiful baby girl. She has inherited Cindy's incredible muscle building genetics. Look at her proud chubby flex in the crib!";
+            babyOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            babyOverlay.querySelector('.id-modal-content').classList.remove('scale-75');
+            babyOverlay.querySelector('.id-modal-content').classList.add('scale-100');
+
+            postToGrolyx('baby_girl');
+        }
+
+        function triggerBabyBoyBirth() {
+            state.hasSon = true;
+
+            // Ensure crib container is visible
+            cribsContainer.classList.remove('scale-0');
+            cribsContainer.classList.add('scale-100');
+            cribBoy.classList.remove('hidden');
+
+            // Update baby stats/hud
+            updateHappiness(30);
+
+            // Setup overlay modal
+            babyEmoji.textContent = "👶🧢";
+            babyTitle.textContent = "IT'S A BABY BOY!";
+            babyDesc.textContent = "Congratulations! A strong baby boy has arrived! He is already holding a rattle styled like a dumbbell in his crib. Cindy's maternal happiness is at an absolute peak!";
+            babyOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            babyOverlay.querySelector('.id-modal-content').classList.remove('scale-75');
+            babyOverlay.querySelector('.id-modal-content').classList.add('scale-100');
+
+            postToGrolyx('baby_boy');
+        }
+
+        function closeBabyOverlay() {
+            babyOverlay.classList.add('opacity-0', 'pointer-events-none');
+            babyOverlay.querySelector('.id-modal-content').classList.remove('scale-100');
+            babyOverlay.querySelector('.id-modal-content').classList.add('scale-75');
+        }
+
+        // PHYSICALLY FALLING BUTTON LOGIC
+        function triggerButtonBreakAndFall() {
+            // Screen Shake effect
+            gameContainer.classList.add('animate-shake');
+            setTimeout(() => {
+                gameContainer.classList.remove('animate-shake');
+            }, 400);
+
+            // Play loud metallic break sound
+            playSound('clank');
+
+            // Find elements
+            const btn = document.getElementById('romance-btn');
+            const sub = document.getElementById('romance-sub');
+
+            // 1. Visually break the button
+            btn.classList.remove('from-rose-500', 'via-pink-500', 'to-rose-500', 'hover:opacity-95');
+            btn.classList.add('from-neutral-600', 'to-neutral-800', 'border-neutral-500', 'broken-cracks');
+            btn.innerHTML = `
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none text-red-500/30 text-3xl font-extrabold select-none opacity-40">❌ CRACKED ❌</div>
+                <span class="text-sm font-black text-neutral-400">💔 BUTTON BROKE 💔</span>
+                <span class="text-[8px] font-bold text-neutral-500">Romance Era Complete</span>
+            `;
+
+            // Disable interaction
+            btn.disabled = true;
+            btn.style.cursor = 'not-allowed';
+
+            // 2. Animate falling using JavaScript physics simulation inside container bounds!
+            // Get original screen position of the button relative to the control panel
+            const parent = document.getElementById('romance-btn-container');
+            const rect = btn.getBoundingClientRect();
+            const parentRect = parent.getBoundingClientRect();
+
+            // Set button style to absolute within the parent container
+            btn.style.position = 'absolute';
+            btn.style.width = `${rect.width}px`;
+            btn.style.height = `${rect.height}px`;
+            
+            // Physics variables
+            let x = 0; // Relative to container
+            let y = 0;
+            let vx = (Math.random() - 0.5) * 6; // Initial random sideway force
+            let vy = -12; // Initial upward bounce/pop
+            let gravity = 0.85;
+            let bounce = -0.52; // Elastic bounce absorption
+            let rotation = 0;
+            let vrot = (Math.random() - 0.5) * 15; // Rotation velocity
+
+            const containerWidth = parentRect.width;
+            const btnWidth = rect.width;
+            
+            // The "floor" where it will bounce inside the phone bezel (the bottom of the controls-panel)
+            // parent relative bottom limit
+            const floorY = 240; 
+
+            function animatePhysics() {
+                vy += gravity;
+                x += vx;
+                y += vy;
+                rotation += vrot;
+
+                // Wall collisions (side bounces within phone container)
+                if (x < -10) {
+                    x = -10;
+                    vx = -vx * 0.7;
+                } else if (x > (containerWidth - btnWidth + 10)) {
+                    x = containerWidth - btnWidth + 10;
+                    vx = -vx * 0.7;
+                }
+
+                // Floor collision (bounce or fall off the bottom)
+                if (y >= floorY) {
+                    y = floorY;
+                    vy = vy * bounce;
+                    vx = vx * 0.75; // ground friction
+                    vrot = vrot * 0.6; // ground friction rotation
+
+                    // Stop when velocity is super low
+                    if (Math.abs(vy) < 1.0) {
+                        vy = 0;
+                        gravity = 0;
+                        vrot = 0;
+                    }
+                    playSound('clank'); // Mini metallic clink
+                }
+
+                // Apply style transformations
+                btn.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+
+                // Fall off simulation continues if button is still moving or is at rest at the bottom
+                // We'll let it slide off completely through the bottom after resting a bit
+                if (Math.abs(vy) > 0.1 || Math.abs(vx) > 0.1 || y < floorY) {
+                    requestAnimationFrame(animatePhysics);
+                } else {
+                    // Start slow tumble out of overflow bounds
+                    setTimeout(() => {
+                        let finalY = floorY;
+                        function tumbleOff() {
+                            finalY += 8;
+                            btn.style.transform = `translate(${x}px, ${finalY}px) rotate(${rotation + 15}deg)`;
+                            if (finalY < 500) {
+                                requestAnimationFrame(tumbleOff);
+                            } else {
+                                btn.remove(); // Remove physically after tumbling out of screen bezel
+                                // Set a message in container
+                                parent.innerHTML = `
+                                    <div class="w-full h-full flex flex-col items-center justify-center border-2 border-dashed border-neutral-800 rounded-2xl bg-neutral-950/40 text-[10px] text-neutral-600 font-bold font-mono tracking-wider">
+                                        ⚠️ THE ROMANCE BUTTON FELL OFF INTO THE VOID
+                                        <div class="text-[8px] text-neutral-700 mt-1">Cindy is happy with her two kids!</div>
+                                    </div>
+                                `;
+                            }
+                        }
+                        tumbleOff();
+                    }, 1000);
+                }
+            }
+
+            // Start animation loop
+            requestAnimationFrame(animatePhysics);
+        }
+    </script>
+</body>
+</html>
